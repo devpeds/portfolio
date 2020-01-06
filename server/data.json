@@ -1,10 +1,10 @@
 {
-  "name": "정승훈",
-  "jobTitle": "고려대학교 바이오의공학부",
+  "name": "",
+  "jobTitle": "",
   "image": "images/simpson.jpg",
   "socials": {
-    "email": "hugh1127@gmail.com",
-    "github": "https://github.com/devpeds",
+    "email": "",
+    "github": "",
     "linkedin": "",
     "facebook": ""
   },
@@ -12,57 +12,34 @@
     {
       "id": 1,
       "type": "work",
-      "title": "WizLive 튜터",
-      "subtitle": "2019년 9월 ~"
+      "title": "???",
+      "subtitle": "???? ~"
     },
     {
       "id": 2,
       "type": "edu",
-      "title": "부스트코스 안드로이드",
-      "subtitle": "2018년 09월 수료"
-    },
-    {
-      "id": 3,
-      "type": "edu",
-      "title": "고려대학교",
-      "subtitle": "2011년 03월 입학"
-    },
-    {
-      "id": 4,
-      "type": "edu",
-      "title": "북평고등학교",
-      "subtitle": "2011년 02월 졸업"
+      "title": "???",
+      "subtitle": "???? ~ ????"
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "iOS: Babien",
-      "date": "2018년 01월 ~ 2019년 05월",
-      "url": "https://appadvice.com/app/babien/1370745082",
-      "about": "육아 과정에서 나오는 데이터를 기록하고 분석하는 iOS용 육아 애플리케이션",
-      "features": [
-        "기록한 육아 활동을 리스트 형식으로 표시",
-        "수유, 유축 시간을 측정하기 위한 타이머 기능",
-        "Charts 라이브러리를 활용한 데이터 시각화 기능",
-        "Firebase Auth를 이용한 사용자 인증(미출시)",
-        "Firebase 서버로 육아 데이터 저장 및 표시(미출시)",
-        "Hero를 이용한 커스텀 트래지션 애니메이션(미출시)"
-      ],
-      "tags": ["iOS", "cocoa", "swift", "realm", "firebase"]
+      "title": "iOS: ????",
+      "date": "????년 ??월 ~ ????년 ??월",
+      "url": "",
+      "about": "?????????????????????????",
+      "features": [],
+      "tags": ["iOS", "cocoa", "swift"]
     },
     {
       "id": 2,
-      "title": "안드로이드: 씨네마천국",
-      "date": "2018년 05월 ~ 2018년 09월",
-      "url": "https://github.com/devpeds/-Naver-Boostcourse-Android-Programming---final/blob/master/README.md",
-      "about": "부스트코스 안드로이드 과정을 진행하는 동안 제작한 프로젝트로, API 서버에서 데이터를 가져와 사용자에게 보여주는 영화 애플리케이션",
-      "features": [
-        "API 서버로부터 가져온 영화목록, 영화상세 등의 정보를 표시",
-        "영화에 대한 좋아요/싫어요 기능과 평점 및 한줄평 작성 기능",
-        "이미지 확대/축소 및 이동이 가능한 사진보기 기능과 유튜브 API를 활용한 영상재생 기능"
-      ],
-      "tags": ["android", "java", "sqlite"]
+      "title": "Android: ????",
+      "date": "????년 ??월 ~ ????년 ??월",
+      "url": "",
+      "about": "?????????????????????????",
+      "features": [],
+      "tags": ["Android", "java"]
     }
   ]
 }
