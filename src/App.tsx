@@ -1,71 +1,42 @@
-import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
-import { useState } from 'react'
 
-import reactLogo from './assets/react.svg'
+import Footer from './components/Footer'
+import NavBar from './components/NavBar'
+import { Career, Intro, Projects, Skills } from './components/sections'
 
-// eslint-disable-next-line import/no-unresolved
-import viteLogo from '/vite.svg'
-
-const logoSpin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+const SectionsContainer = styled.div`
+  color: #000000;
+  background-color: #f5f5f5;
+  flex: 1;
+  padding: 0 24px;
 `
 
-const Logo = styled.img`
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-  &:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  &.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    &.react {
-      animation: ${logoSpin} infinite 20s linear;
-    }
-  }
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
 `
 
-const Card = styled.div`
-  padding: 2em;
-`
-
-const ReadTheDocs = styled.p`
-  color: #888;
+const Divider = styled.hr`
+  border-color: rgba(0, 0, 0, 0.14);
 `
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <Logo src={viteLogo} alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <Logo src={reactLogo} className="react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <Card>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </Card>
-      <ReadTheDocs>Click on the Vite and React logos to learn more</ReadTheDocs>
+      <NavBar />
+      <Intro />
+      <SectionsContainer>
+        <Container>
+          <Skills />
+          <Career />
+          <Divider />
+          <Projects />
+        </Container>
+      </SectionsContainer>
+      <Container>
+        <Footer />
+      </Container>
     </>
   )
 }
