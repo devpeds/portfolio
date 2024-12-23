@@ -3,16 +3,22 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import App from './App.tsx'
+import colors from './styles/colors.ts'
 
 const globalStyles = css`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #222222;
+    color: ${colors.white87};
+    background-color: ${colors.dark};
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -28,6 +34,20 @@ const globalStyles = css`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  ul,
+  ol {
+    list-style-type: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: 0;
+  }
+  button:not(:disabled),
+  [type='button']:not(:disabled) {
+    cursor: pointer;
   }
 `
 
