@@ -11,7 +11,6 @@ const SectionsContainer = styled.div`
   color: ${colors.black};
   background-color: #f5f5f5;
   flex: 1;
-  padding: 0 24px;
   z-index: 1;
 `
 
@@ -27,6 +26,7 @@ function App() {
       <SectionsContainer>
         <Container>
           <Skills />
+          <Divider />
           <Career />
           <Divider />
           <Projects />

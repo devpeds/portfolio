@@ -1,17 +1,14 @@
-import styled from '@emotion/styled'
 import { ReactElement } from 'react'
 
-const Wrapper = styled.div`
-  position: relative;
-  top: -60px;
-  padding: 40px 24px;
-  background-color: #ffffff; // rgb(254, 243, 210);
-  box-shadow: 0 0 0.5rem 0 rgba(68, 68, 68, 0.4);
-  height: 300px;
-`
+import Section from '../Section'
 
 function Skills(): ReactElement {
-  return <Wrapper>TODO: Implement Skills</Wrapper>
+  return (
+    <Section>
+      <Section.Title>Skills</Section.Title>
+      TODO: Implement Skills
+    </Section>
+  )
 }
 
 export default Skills

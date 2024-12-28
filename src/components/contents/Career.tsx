@@ -1,7 +1,14 @@
 import { ReactElement } from 'react'
 
+import Section from '../Section'
+
 function Career(): ReactElement {
-  return <div style={{ height: 500 }}>TODO: Implement Career</div>
+  return (
+    <Section>
+      <Section.Title>Career</Section.Title>
+      TODO: Implement Career
+    </Section>
+  )
 }
 
 export default Career

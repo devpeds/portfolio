@@ -37,7 +37,7 @@ const ContainerExt = styled(Container)`
 `
 
 const TypewriterWrapper = styled.div`
-  font-size: 2.5em;
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
   white-space: break-spaces;

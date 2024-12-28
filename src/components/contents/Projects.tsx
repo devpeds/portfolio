@@ -1,7 +1,14 @@
 import { ReactElement } from 'react'
 
+import Section from '../Section'
+
 function Projects(): ReactElement {
-  return <div style={{ height: 500 }}>TODO: Implement Projects</div>
+  return (
+    <Section>
+      <Section.Title>Projects</Section.Title>
+      TODO: Implement Projects
+    </Section>
+  )
 }
 
 export default Projects
