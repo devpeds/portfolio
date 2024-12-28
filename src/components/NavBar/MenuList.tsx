@@ -5,22 +5,22 @@ import { breakpoints, colors } from '../../styles'
 
 const Nav = styled.nav`
   overflow: hidden;
-  padding-bottom: 12px;
   transition: height 0.25s;
 
   @media (min-width: ${breakpoints.md}px) {
     height: fit-content;
-    padding-bottom: 0;
   }
 `
 
 const List = styled.ul`
   display: flex;
   flex-direction: column;
+  padding-bottom: 12px;
 
   @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
     justify-content: center;
+    padding-bottom: 0;
 
     & > li {
       margin-left: 16px;

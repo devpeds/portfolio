@@ -7,6 +7,7 @@ const colors = {
   primary08: 'rgba(159, 114, 255, .08)',
   background: '#f5f5f5',
   dark: '#222222',
+  dark80: 'rgba(34, 34, 34, .80)',
 } as const
 
 export default colors
