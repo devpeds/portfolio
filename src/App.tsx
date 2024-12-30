@@ -25,8 +25,7 @@ function App() {
       <Intro name={profile.name} aka={profile.aka} />
       <SectionsContainer>
         <Container>
-          <Skills />
-          <Divider />
+          <Skills skills={profile.skills} />
           <Career />
           <Divider />
           <Projects />
