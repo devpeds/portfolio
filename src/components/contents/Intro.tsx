@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     opacity: 0.4;
     isolation: isolate;
     background:
-      linear-gradient(180deg, ${colors.dark87} 0, ${colors.dark87} 90%),
+      radial-gradient(circle, ${colors.dark00} 0, ${colors.dark87} 100%),
       url(${backgroundImg}) 50% no-repeat;
     background-size: cover;
     filter: grayscale(70%);
