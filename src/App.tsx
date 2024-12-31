@@ -26,7 +26,7 @@ function App() {
       <SectionsContainer>
         <Container>
           <Skills skills={profile.skills} />
-          <Careers />
+          <Careers careers={profile.careers} />
           <Divider />
           <Projects />
         </Container>
