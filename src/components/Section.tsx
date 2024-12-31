@@ -13,12 +13,11 @@ const sectionCss = {
   self: css({
     display: 'flex',
     flexDirection: 'column',
-    padding: '32px 24px',
-    minHeight: 500,
+    padding: '48px 24px',
   }),
   title: css({
     fontSize: '2em',
-    marginBottom: 20,
+    marginBottom: 32,
   }),
 }
 

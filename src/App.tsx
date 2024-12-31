@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
-import { Career, Intro, Projects, Skills } from './components/contents'
+import { Careers, Intro, Projects, Skills } from './components/contents'
 import { profile } from './data'
 import { colors } from './styles'
 
@@ -26,7 +26,7 @@ function App() {
       <SectionsContainer>
         <Container>
           <Skills skills={profile.skills} />
-          <Career />
+          <Careers />
           <Divider />
           <Projects />
         </Container>

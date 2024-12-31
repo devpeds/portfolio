@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 
 import Section from '../Section'
 
-function Career(): ReactElement {
+function Careers(): ReactElement {
   return (
     <Section>
       <Section.Title>Career</Section.Title>
@@ -11,4 +11,4 @@ function Career(): ReactElement {
   )
 }
 
-export default Career
+export default Careers
