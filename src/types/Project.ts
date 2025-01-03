@@ -7,6 +7,7 @@ interface Project {
   endAt?: Date
   techStack: Skill[]
   description: string
+  detail: Promise<string>
 }
 
 export default Project

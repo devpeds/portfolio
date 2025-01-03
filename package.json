@@ -16,6 +16,8 @@
     "grapheme-splitter": "^1.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "react18-use": "^0.3.0",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

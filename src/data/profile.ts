@@ -2,6 +2,11 @@ import backgroundImg from '../assets/background.png'
 import Skill from '../enums/Skill'
 import { Profile } from '../types'
 
+// TODO: get real data & find better way
+const detail = import('./projects/playwings-renewal.md?raw').then(
+  (src) => src.default,
+)
+
 const profile: Profile = {
   name: '정승훈',
   aka: '페즈',
@@ -68,6 +73,7 @@ const profile: Profile = {
       endAt: new Date(2024, 11),
       techStack: [Skill.dart, Skill.flutter, Skill.bloc],
       description: '인증 기반 데이팅 앱',
+      detail,
     },
     {
       name: '알통(Altong)',
@@ -76,6 +82,7 @@ const profile: Profile = {
       endAt: new Date(2023, 9),
       techStack: [Skill.ts, Skill.next, Skill.mui, Skill.tailwind],
       description: '알뜰폰 요금제 비교 웹사이트',
+      detail,
     },
     {
       name: '프루피(Proofy)',
@@ -90,6 +97,7 @@ const profile: Profile = {
         Skill.tailwind,
       ],
       description: '소울바운드토큰(SBT) 기반 신원 인증 앱',
+      detail,
     },
     {
       name: '플레이윙즈 웹 어플리케이션',
@@ -106,6 +114,7 @@ const profile: Profile = {
       ],
       description:
         'SEO를 통한 사용자 유입 증대와 웹투앱 마케팅을 진행하기 위한 웹 어플리케이션',
+      detail,
     },
     {
       name: '플레이윙즈 리뉴얼 프로젝트',
@@ -114,6 +123,7 @@ const profile: Profile = {
       endAt: new Date(2022, 2),
       techStack: [Skill.ts, Skill.rn, Skill.mobx, Skill.graphql],
       description: '여행 특가 알림 서비스 플레이윙즈의 리뉴얼 프로젝트',
+      detail,
     },
   ],
 }

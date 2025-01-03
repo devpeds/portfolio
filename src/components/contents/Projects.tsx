@@ -1,9 +1,10 @@
 import { css } from '@emotion/react'
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 
 import { breakpoints, colors } from '../../styles'
 import { Project } from '../../types'
 import { formatInterval } from '../../utils/dateUtil'
+import ProjectDetailModal from '../ProjectDetailModal'
 import Section from '../Section'
 import SkillChips from '../SkillChips'
 
@@ -76,36 +77,50 @@ const projectsCss = {
   }),
 }
 
+interface CardProps {
+  project: Project
+}
+
+function ProjectCard(props: CardProps): ReactElement {
+  const { project } = props
+  const [isSelected, setSelected] = useState(false)
+
+  return (
+    <>
+      <button css={projectsCss.item} onClick={() => setSelected(true)}>
+        <img css={projectsCss.image} src={project.image} />
+        <div css={projectsCss.content}>
+          <div css={projectsCss.period}>
+            {formatInterval(project.startAt, project.endAt)}
+          </div>
+          <div css={projectsCss.title}>{project.name}</div>
+          <div css={projectsCss.description}>{project.description}</div>
+          <hr css={projectsCss.hr} />
+          <SkillChips css={projectsCss.techStack} skills={project.techStack} />
+        </div>
+      </button>
+      <ProjectDetailModal
+        project={project}
+        open={isSelected}
+        onClose={() => setSelected(false)}
+      />
+    </>
+  )
+}
+
 interface Props {
   projects: Project[]
 }
 
 function Projects(props: Props): ReactElement {
   const { projects } = props
+
   return (
     <Section>
       <Section.Title>Projects</Section.Title>
       <div css={projectsCss.list}>
         {projects.map((project) => (
-          <button
-            key={project.name}
-            css={projectsCss.item}
-            onClick={() => console.log('click')}
-          >
-            <img css={projectsCss.image} src={project.image} />
-            <div css={projectsCss.content}>
-              <div css={projectsCss.period}>
-                {formatInterval(project.startAt, project.endAt)}
-              </div>
-              <div css={projectsCss.title}>{project.name}</div>
-              <div css={projectsCss.description}>{project.description}</div>
-              <hr css={projectsCss.hr} />
-              <SkillChips
-                css={projectsCss.techStack}
-                skills={project.techStack}
-              />
-            </div>
-          </button>
+          <ProjectCard key={project.name} project={project} />
         ))}
       </div>
     </Section>
