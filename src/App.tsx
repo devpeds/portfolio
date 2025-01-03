@@ -28,7 +28,7 @@ function App() {
           <Skills skills={profile.skills} />
           <Careers careers={profile.careers} />
           <Divider />
-          <Projects />
+          <Projects projects={profile.projects} />
         </Container>
       </SectionsContainer>
       <Container>
