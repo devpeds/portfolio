@@ -6,4 +6,6 @@ const breakpoints = {
   xl: 1536,
 } as const
 
+export type BreakPoint = keyof typeof breakpoints
+
 export default breakpoints

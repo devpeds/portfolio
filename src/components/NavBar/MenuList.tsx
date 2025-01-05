@@ -1,53 +1,48 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { ReactElement, useRef } from 'react'
 
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
+import { hoverStyle, mediaQueryWidth, paddingXY } from '../../utils/styleUtil'
 
-const Nav = styled.nav`
-  overflow: hidden;
-  transition: height 0.25s;
-
-  @media (min-width: ${breakpoints.md}px) {
-    height: fit-content;
-  }
-`
-
-const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 12px;
-
-  @media (min-width: ${breakpoints.md}px) {
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 0;
-
-    & > li {
-      margin-left: 16px;
-    }
-  }
-`
-
-const Item = styled.button`
-  padding: 12px;
-  color: inherit;
-  font-size: 1.2em;
-  font-weight: 700;
-  width: 100%;
-  text-align: start;
-  padding: 12px 24px;
-
-  &:hover {
-    background-color: ${colors.primary08};
-    color: ${colors.primary};
-  }
-
-  @media (min-width: ${breakpoints.md}px) {
-    padding: 12px 16px;
-    text-align: center;
-    border-radius: 8px;
-  }
-`
+const menuCss = {
+  nav: css({
+    overflow: 'hidden',
+    transition: 'height 0.25s',
+    [mediaQueryWidth('md')]: {
+      height: 'fit-content',
+    },
+  }),
+  list: css({
+    display: 'flex',
+    flexDirection: 'column',
+    paddingBottom: 12,
+    [mediaQueryWidth('md')]: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      gap: 16,
+      paddingBottom: 0,
+    },
+  }),
+  item: css(
+    {
+      padding: paddingXY(24, 12),
+      color: 'inherit',
+      fontSize: '1.2em',
+      fontWeight: 700,
+      width: '100%',
+      textAlign: 'start',
+      [mediaQueryWidth('md')]: {
+        padding: paddingXY(16, 12),
+        textAlign: 'center',
+        borderRadius: 8,
+      },
+    },
+    hoverStyle({
+      backgroundColor: colors.primary08,
+      color: colors.primary,
+    }),
+  ),
+}
 
 interface Props {
   menus: string[]
@@ -60,15 +55,20 @@ function MenuList(props: Props): ReactElement {
   const ref = useRef<HTMLUListElement>(null)
 
   return (
-    <Nav style={{ height: open ? ref.current?.clientHeight : 0 }}>
-      <List ref={ref}>
+    <nav
+      css={menuCss.nav}
+      style={{ height: open ? ref.current?.clientHeight : 0 }}
+    >
+      <ul css={menuCss.list} ref={ref}>
         {menus.map((menu) => (
           <li key={menu}>
-            <Item onClick={() => onItemClick?.(menu)}>{menu}</Item>
+            <button css={menuCss.item} onClick={() => onItemClick?.(menu)}>
+              {menu}
+            </button>
           </li>
         ))}
-      </List>
-    </Nav>
+      </ul>
+    </nav>
   )
 }
 

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
 import Container from './components/Container'
 import Footer from './components/Footer'
@@ -7,30 +7,25 @@ import { Careers, Intro, Projects, Skills } from './components/contents'
 import { profile } from './data'
 import { colors } from './styles'
 
-const SectionsContainer = styled.div`
-  color: ${colors.dark87};
-  background-color: ${colors.lightGray};
-  flex: 1;
-  z-index: 1;
-`
-
-const Divider = styled.hr`
-  border-color: rgba(0, 0, 0, 0.14);
-`
+const containerCss = css({
+  backgroundColor: colors.lightGray,
+  flex: 1,
+  zIndex: 1,
+})
 
 function App() {
   return (
     <>
       <NavBar menus={['Skills', 'Careers', 'Projects']} />
       <Intro name={profile.name} aka={profile.aka} />
-      <SectionsContainer>
+      <div css={containerCss}>
         <Container>
           <Skills skills={profile.skills} />
           <Careers careers={profile.careers} />
-          <Divider />
+          <hr />
           <Projects projects={profile.projects} />
         </Container>
-      </SectionsContainer>
+      </div>
       <Container>
         <Footer />
       </Container>

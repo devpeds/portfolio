@@ -62,12 +62,10 @@ const projectsCss = {
   description: css({
     flex: 1,
     lineHeight: 1.5,
-  }),
-  hr: css({
-    borderColor: colors.dark12,
-    margin: '24px 0',
+    marginBottom: 24,
   }),
   techStack: css({
+    marginTop: 24,
     fontSize: 16,
     lineHeight: '20px',
     gap: 8,
@@ -94,7 +92,7 @@ function ProjectCard(props: CardProps): ReactElement {
           </div>
           <div css={projectsCss.title}>{project.name}</div>
           <div css={projectsCss.description}>{project.description}</div>
-          <hr css={projectsCss.hr} />
+          <hr />
           <SkillChips css={projectsCss.techStack} skills={project.techStack} />
         </div>
       </button>

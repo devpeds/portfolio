@@ -27,7 +27,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       prettier: prettier,
-      '@emotion': emotion.rules,
+      '@emotion': emotion,
       'unused-imports': unusedImports,
     },
     rules: {
@@ -50,6 +50,7 @@ export default tseslint.config(
           'newlines-between': 'always',
         },
       ],
+      'import/named': 'off',
       'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
@@ -61,6 +62,7 @@ export default tseslint.config(
           argsIgnorePattern: '^_',
         },
       ],
+      '@emotion/syntax-preference': [2, 'object'],
     },
   },
 )

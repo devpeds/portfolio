@@ -1,60 +1,56 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import GraphemeSplitter from 'grapheme-splitter'
 import { ReactElement } from 'react'
 import TypewriterComponent from 'typewriter-effect'
 
 import backgroundImg from '../../assets/background.png'
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
+import { mediaQueryWidth } from '../../utils/styleUtil'
 import Container from '../Container'
 
-const Wrapper = styled.div`
-  position: sticky;
-  top: 0;
-  min-height: 480px;
-  color: ${colors.white};
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.4;
-    isolation: isolate;
-    background:
-      radial-gradient(circle, ${colors.dark60} 0, ${colors.dark87} 100%),
-      url(${backgroundImg}) 50% no-repeat;
-    background-size: cover;
-    filter: grayscale(70%);
-  }
-`
-
-const ContainerExt = styled(Container)`
-  position: absolute;
-  inset: 0;
-  padding: 80px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const TypewriterWrapper = styled.div`
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  white-space: break-spaces;
-  min-height: 120px;
-  margin-bottom: 32px;
-
-  & .Typewriter__cursor {
-    font-size: 1.2em;
-    line-height: 1;
-  }
-
-  @media (min-width: ${breakpoints.md}px) {
-    white-space: normal;
-    min-height: 60px;
-  }
-`
+const introCss = {
+  self: css({
+    position: 'sticky',
+    top: 0,
+    minHeight: 480,
+    color: colors.white,
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      opacity: 0.4,
+      isolation: 'isolate',
+      background: `radial-gradient(circle, ${colors.dark60} 0, ${colors.dark87} 100%), url(${backgroundImg}) 50% no-repeat`,
+      backgroundSize: 'cover',
+      filter: 'grayscale(70%)',
+    },
+  }),
+  container: css({
+    position: 'absolute',
+    inset: 0,
+    paddingTop: 80,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }),
+  typewriter: css({
+    fontSize: '3rem',
+    fontWeight: 700,
+    textAlign: 'center',
+    whiteSpace: 'break-spaces',
+    minHeight: 120,
+    marginBottom: 32,
+    '& .Typewriter__cursor': {
+      fontSize: '1.2em',
+      lineHeight: 1,
+    },
+    [mediaQueryWidth('md')]: {
+      whiteSpace: 'normal',
+      minHeight: 60,
+    },
+  }),
+}
 
 const stringSplitter = (text: string): string => {
   return new GraphemeSplitter().splitGraphemes(text) as unknown as string
@@ -73,24 +69,25 @@ function Intro(props: Props): ReactElement {
   const { name, aka } = props
 
   return (
-    <Wrapper>
-      <ContainerExt>
-        <TypewriterComponent
-          component={TypewriterWrapper}
-          options={{ stringSplitter }}
-          onInit={(typewriter) =>
-            typewriter
-              .typeString(`프론트엔드 개발자\n${highlight(aka)}`)
-              .pauseFor(300)
-              .deleteChars(2)
-              .typeString(`${highlight(name)}입니다`)
-              .pauseFor(300)
-              .typeString(' 👋')
-              .start()
-          }
-        />
-      </ContainerExt>
-    </Wrapper>
+    <div css={introCss.self}>
+      <Container css={introCss.container}>
+        <div css={introCss.typewriter}>
+          <TypewriterComponent
+            options={{ stringSplitter }}
+            onInit={(typewriter) =>
+              typewriter
+                .typeString(`프론트엔드 개발자\n${highlight(aka)}`)
+                .pauseFor(300)
+                .deleteChars(2)
+                .typeString(`${highlight(name)}입니다`)
+                .pauseFor(300)
+                .typeString(' 👋')
+                .start()
+            }
+          />
+        </div>
+      </Container>
+    </div>
   )
 }
 

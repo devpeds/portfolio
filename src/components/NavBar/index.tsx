@@ -1,57 +1,46 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { ReactElement, useEffect, useState } from 'react'
 
 import { breakpoints, colors } from '../../styles'
 import Container from '../Container'
 import MenuList from './MenuList'
+import { paddingXY } from '../../utils/styleUtil'
 
-interface NavBarRootProps {
-  in?: boolean
+const navBarCss = {
+  self: css({
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 100,
+    transition: 'all .2s',
+  }),
+  light: css({
+    backgroundColor: colors.white,
+    color: colors.dark87,
+    boxShadow: `0 0px 8px ${colors.dark12}`,
+  }),
+  dark: css({
+    backgroundColor: colors.dark60,
+    color: colors.white,
+  }),
+  inner: css({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: paddingXY(20, 16),
+  }),
+  title: css({
+    fontSize: '1.8em',
+    lineHeight: '48px',
+  }),
+  menuButton: css({
+    width: 48,
+    height: 48,
+    borderRadius: 8,
+    border: `1px solid ${colors.dark12}`,
+  }),
 }
-
-const NavBarRoot = styled('header', {
-  shouldForwardProp: (key) => key !== 'in',
-})<NavBarRootProps>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background-color: ${colors.white};
-  color: ${colors.dark};
-  box-shadow: 0 2px 8px hsla(0, 0%, 80%, 0.8);
-  transition: all 0.2s;
-
-  @media (min-width: ${breakpoints.md}px) {
-    background-color: ${(props) => (props.in ? colors.white : 'transparent')};
-    color: ${(props) => (props.in ? colors.dark : colors.white)};
-    box-shadow: ${(props) =>
-      props.in ? '0 2px 8px hsla(0, 0%, 80%, 0.8)' : 'none'};
-  }
-`
-
-const NavBarInner = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 20px;
-`
-
-const Title = styled.h1`
-  font-size: 1.8em;
-  line-height: 48px;
-`
-
-const MenuButton = styled.button`
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  border: 1px solid ${colors.black12};
-
-  &:hover {
-    background-color: ${colors.black12};
-  }
-`
 
 interface Props {
   menus: string[]
@@ -97,18 +86,23 @@ function NavBar({ menus }: Props): ReactElement {
   )
 
   return (
-    <NavBarRoot in={isScrolled}>
+    <header
+      css={[navBarCss.self, isScrolled ? navBarCss.light : navBarCss.dark]}
+    >
       <Container>
-        <NavBarInner>
-          <Title>PEDS' PORTFOLIO</Title>
+        <div css={navBarCss.inner}>
+          <h1 css={navBarCss.title}>PEDS' PORTFOLIO</h1>
           {isDesktop === true && menuList}
           {isDesktop === false && (
-            <MenuButton onClick={() => setMenuOpen((prev) => !prev)} />
+            <button
+              css={navBarCss.menuButton}
+              onClick={() => setMenuOpen((prev) => !prev)}
+            />
           )}
-        </NavBarInner>
+        </div>
         {isDesktop === false && menuList}
       </Container>
-    </NavBarRoot>
+    </header>
   )
 }
 
