@@ -9,6 +9,7 @@ const globalStyles = css`
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   :root {
@@ -16,8 +17,7 @@ const globalStyles = css`
     line-height: 1.5;
     font-weight: 400;
 
-    color-scheme: light dark;
-    color: ${colors.white87};
+    color: ${colors.dark87};
     background-color: ${colors.dark};
 
     font-synthesis: none;

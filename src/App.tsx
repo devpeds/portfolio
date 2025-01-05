@@ -8,8 +8,8 @@ import { profile } from './data'
 import { colors } from './styles'
 
 const SectionsContainer = styled.div`
-  color: ${colors.black};
-  background-color: #f5f5f5;
+  color: ${colors.dark87};
+  background-color: ${colors.lightGray};
   flex: 1;
   z-index: 1;
 `

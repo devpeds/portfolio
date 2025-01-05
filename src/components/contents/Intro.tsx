@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   position: sticky;
   top: 0;
   min-height: 480px;
+  color: ${colors.white};
 
   &::before {
     content: '';

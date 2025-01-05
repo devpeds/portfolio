@@ -27,7 +27,6 @@ const projectsCss = {
     fontSize: '1em',
     textAlign: 'left',
     width: '100%',
-    boxSizing: 'border-box',
     borderRadius: 16,
     overflow: 'hidden',
     transition: 'transform .1s',
