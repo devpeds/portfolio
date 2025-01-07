@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ReactElement, useEffect } from 'react'
+import { Fragment, ReactElement, useEffect } from 'react'
 
 import Container from './components/Container'
 import Footer from './components/Footer'
@@ -67,13 +67,13 @@ function App(): ReactElement {
       <div css={containerCss}>
         <Container>
           {menus.map((menu) => (
-            <>
-              <Section key={menu.id} id={menu.id}>
+            <Fragment key={menu.id}>
+              <Section id={menu.id}>
                 <Section.Title>{menu.name}</Section.Title>
                 {menu.component}
               </Section>
               {menu.divider && <hr />}
-            </>
+            </Fragment>
           ))}
         </Container>
       </div>
