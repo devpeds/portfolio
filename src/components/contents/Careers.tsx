@@ -4,7 +4,6 @@ import { ReactElement } from 'react'
 import { colors } from '../../styles'
 import { Career } from '../../types'
 import { formatDuration, formatInterval } from '../../utils/dateUtil'
-import Section from '../Section'
 
 const headerSpacing = 12
 const markerSize = 15
@@ -139,18 +138,15 @@ interface Props {
 function Careers(props: Props): ReactElement {
   const { careers } = props
   return (
-    <Section>
-      <Section.Title>Careers</Section.Title>
-      <ul css={careersCss.list}>
-        {careers.map((career, index) => (
-          <CareerItem
-            key={career.company.name}
-            career={career}
-            noTail={index === careers.length - 1}
-          />
-        ))}
-      </ul>
-    </Section>
+    <ul css={careersCss.list}>
+      {careers.map((career, index) => (
+        <CareerItem
+          key={career.company.name}
+          career={career}
+          noTail={index === careers.length - 1}
+        />
+      ))}
+    </ul>
   )
 }
 

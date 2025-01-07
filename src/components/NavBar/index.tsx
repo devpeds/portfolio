@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 
 import { breakpoints, colors } from '../../styles'
 import Container from '../Container'
 import MenuList from './MenuList'
 import { SvgMenu } from '../../assets/svg'
+import { Menu } from '../../types'
 import { paddingXY } from '../../utils/styleUtil'
 import IconButton from '../IconButton'
 
@@ -42,13 +43,14 @@ const navBarCss = {
 }
 
 interface Props {
-  menus: string[]
+  menus: Menu[]
 }
 
 function NavBar({ menus }: Props): ReactElement {
   const [isScrolled, setScrolled] = useState<boolean>(false)
   const [isDesktop, setDesktop] = useState<boolean>()
   const [isMenuOen, setMenuOpen] = useState<boolean>(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -71,8 +73,15 @@ function NavBar({ menus }: Props): ReactElement {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  const onMenuItemClick = () => {
-    // TODO: scroll to section
+  const onMenuItemClick = (menu: Menu) => {
+    const section = document.getElementById(menu.id)
+    if (section) {
+      const offset = ref.current?.getBoundingClientRect().height ?? 0
+      window.scrollBy({
+        top: section.getBoundingClientRect().top - offset,
+        behavior: 'smooth',
+      })
+    }
     setMenuOpen(false)
   }
 
@@ -89,7 +98,7 @@ function NavBar({ menus }: Props): ReactElement {
       css={[navBarCss.self, isScrolled ? navBarCss.light : navBarCss.dark]}
     >
       <Container>
-        <div css={navBarCss.inner}>
+        <div ref={ref} css={navBarCss.inner}>
           <h1 css={navBarCss.title}>PEDS' PORTFOLIO</h1>
           {isDesktop === true && menuList}
           {isDesktop === false && (

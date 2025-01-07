@@ -1,5 +1,5 @@
 import backgroundImg from '../assets/background.png'
-import Skill from '../enums/Skill'
+import { Skill } from '../enums'
 import { Profile } from '../types'
 
 // TODO: get real data & find better way

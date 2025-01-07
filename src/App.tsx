@@ -1,11 +1,39 @@
 import { css } from '@emotion/react'
+import { ReactElement } from 'react'
 
 import Container from './components/Container'
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
+import Section from './components/Section'
 import { Careers, Intro, Projects, Skills } from './components/contents'
 import { profile } from './data'
+import { SectionId } from './enums'
 import { colors } from './styles'
+import { Menu } from './types'
+
+type SectionData = Menu & {
+  component: ReactElement
+  divider?: boolean
+}
+
+const menus: SectionData[] = [
+  {
+    id: SectionId.skills,
+    name: 'Skills',
+    component: <Skills skills={profile.skills} />,
+  },
+  {
+    id: SectionId.careers,
+    name: 'Careers',
+    component: <Careers careers={profile.careers} />,
+    divider: true,
+  },
+  {
+    id: SectionId.projects,
+    name: 'Projects',
+    component: <Projects projects={profile.projects} />,
+  },
+]
 
 const containerCss = css({
   backgroundColor: colors.lightGray,
@@ -13,17 +41,22 @@ const containerCss = css({
   zIndex: 1,
 })
 
-function App() {
+function App(): ReactElement {
   return (
     <>
-      <NavBar menus={['Skills', 'Careers', 'Projects']} />
+      <NavBar menus={menus} />
       <Intro name={profile.name} aka={profile.aka} />
       <div css={containerCss}>
         <Container>
-          <Skills skills={profile.skills} />
-          <Careers careers={profile.careers} />
-          <hr />
-          <Projects projects={profile.projects} />
+          {menus.map((menu) => (
+            <>
+              <Section key={menu.id} id={menu.id}>
+                <Section.Title>{menu.name}</Section.Title>
+                {menu.component}
+              </Section>
+              {menu.divider && <hr />}
+            </>
+          ))}
         </Container>
       </div>
       <Container>

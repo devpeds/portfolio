@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
 
-import Skill from '../enums/Skill'
+import { Skill } from '../enums'
 import { colors } from '../styles'
 
 const chipsCss = {

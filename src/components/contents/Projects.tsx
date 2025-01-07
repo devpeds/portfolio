@@ -5,7 +5,6 @@ import { breakpoints, colors } from '../../styles'
 import { Project } from '../../types'
 import { formatInterval } from '../../utils/dateUtil'
 import ProjectDetailModal from '../ProjectDetailModal'
-import Section from '../Section'
 import SkillChips from '../SkillChips'
 
 const gap = 32
@@ -113,14 +112,11 @@ function Projects(props: Props): ReactElement {
   const { projects } = props
 
   return (
-    <Section>
-      <Section.Title>Projects</Section.Title>
-      <div css={projectsCss.list}>
-        {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
-        ))}
-      </div>
-    </Section>
+    <div css={projectsCss.list}>
+      {projects.map((project) => (
+        <ProjectCard key={project.name} project={project} />
+      ))}
+    </div>
   )
 }
 

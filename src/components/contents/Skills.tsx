@@ -1,9 +1,8 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
 
-import Skill from '../../enums/Skill'
+import { Skill } from '../../enums'
 import { breakpoints, colors } from '../../styles'
-import Section from '../Section'
 import SkillChips from '../SkillChips'
 
 const skillsCss = {
@@ -40,17 +39,14 @@ function Skills(props: Props): ReactElement {
   const { skills } = props
 
   return (
-    <Section>
-      <Section.Title>Skills</Section.Title>
-      <div css={skillsCss.card}>
-        {Object.keys(skills).map((category) => (
-          <div key={category} css={skillsCss.row}>
-            <span css={skillsCss.rowTitle}>{category}</span>
-            <SkillChips skills={skills[category]} />
-          </div>
-        ))}
-      </div>
-    </Section>
+    <div css={skillsCss.card}>
+      {Object.keys(skills).map((category) => (
+        <div key={category} css={skillsCss.row}>
+          <span css={skillsCss.rowTitle}>{category}</span>
+          <SkillChips skills={skills[category]} />
+        </div>
+      ))}
+    </div>
   )
 }
 

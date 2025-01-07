@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { ReactElement, useRef } from 'react'
 
 import { colors } from '../../styles'
+import { Menu } from '../../types'
 import { hoverStyle, mediaQueryWidth, paddingXY } from '../../utils/styleUtil'
 
 const menuCss = {
@@ -44,9 +45,9 @@ const menuCss = {
 }
 
 interface Props {
-  menus: string[]
+  menus: Menu[]
   open?: boolean
-  onItemClick?: (menu: string) => void
+  onItemClick?: (menu: Menu) => void
 }
 
 function MenuList(props: Props): ReactElement {
@@ -60,9 +61,9 @@ function MenuList(props: Props): ReactElement {
     >
       <ul css={menuCss.list} ref={ref}>
         {menus.map((menu) => (
-          <li key={menu}>
+          <li key={menu.id}>
             <button css={menuCss.item} onClick={() => onItemClick?.(menu)}>
-              {menu}
+              {menu.name}
             </button>
           </li>
         ))}
