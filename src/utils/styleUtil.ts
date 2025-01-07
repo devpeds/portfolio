@@ -27,3 +27,25 @@ export function hoverStyle(css: CSSInterpolation): CSSInterpolation {
     '&:active': css,
   }
 }
+
+export function parseColor(color: string): [number, number, number, number] {
+  if (color.startsWith('#')) {
+    return [
+      parseInt(color.substring(1, 3), 16),
+      parseInt(color.substring(3, 5), 16),
+      parseInt(color.substring(5, 7), 16),
+      1,
+    ]
+  }
+
+  if (color.startsWith('rgb')) {
+    const startIndex = color.startsWith('rgba') ? 5 : 4
+    const rgba = color
+      .substring(startIndex, color.length - 1)
+      .split(',')
+      .map((v) => parseInt(v))
+    return [rgba[0], rgba[1], rgba[2], rgba[3] ?? 1]
+  }
+
+  throw new Error('unsupported format')
+}

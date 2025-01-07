@@ -1,9 +1,6 @@
 import { css } from '@emotion/react'
-import { ComponentType, DetailedHTMLProps, HTMLAttributes } from 'react'
 
-type HTMLComponentType<T extends HTMLElement> = ComponentType<
-  DetailedHTMLProps<HTMLAttributes<T>, T>
->
+import { HTMLComponentType } from '../types'
 
 type SectionComponent = HTMLComponentType<HTMLElement> & {
   Title: HTMLComponentType<HTMLHeadingElement>

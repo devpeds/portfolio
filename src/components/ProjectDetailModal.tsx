@@ -4,8 +4,9 @@ import Markdown from 'react-markdown'
 import { use } from 'react18-use'
 
 import { Project } from '../types'
+import IconButton from './IconButton'
 import Modal from './Modal'
-import { colors } from '../styles'
+import { SvgClose } from '../assets/svg'
 
 const modalCss = {
   self: css({
@@ -31,8 +32,8 @@ const modalCss = {
     position: 'absolute',
     top: 24,
     right: 24,
-    color: colors.dark87,
-    fontSize: 24,
+    marginTop: -8,
+    marginRight: -8,
   }),
 }
 
@@ -59,9 +60,7 @@ function ProjectDetailModal(props: Props): ReactElement {
       <Suspense>
         <ProjectDetailContent content={project.detail} />
       </Suspense>
-      <button css={modalCss.close} onClick={onClose}>
-        {/* TODO: replace it to icon */}X
-      </button>
+      <IconButton css={modalCss.close} onClick={onClose} Icon={SvgClose} />
     </Modal>
   )
 }

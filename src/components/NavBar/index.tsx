@@ -4,7 +4,9 @@ import { ReactElement, useEffect, useState } from 'react'
 import { breakpoints, colors } from '../../styles'
 import Container from '../Container'
 import MenuList from './MenuList'
+import { SvgMenu } from '../../assets/svg'
 import { paddingXY } from '../../utils/styleUtil'
+import IconButton from '../IconButton'
 
 const navBarCss = {
   self: css({
@@ -35,10 +37,7 @@ const navBarCss = {
     lineHeight: '48px',
   }),
   menuButton: css({
-    width: 48,
-    height: 48,
-    borderRadius: 8,
-    border: `1px solid ${colors.dark12}`,
+    marginRight: -8,
   }),
 }
 
@@ -94,9 +93,11 @@ function NavBar({ menus }: Props): ReactElement {
           <h1 css={navBarCss.title}>PEDS' PORTFOLIO</h1>
           {isDesktop === true && menuList}
           {isDesktop === false && (
-            <button
+            <IconButton
               css={navBarCss.menuButton}
               onClick={() => setMenuOpen((prev) => !prev)}
+              color={isScrolled ? 'dark87' : 'white'}
+              Icon={SvgMenu}
             />
           )}
         </div>

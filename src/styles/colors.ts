@@ -15,4 +15,6 @@ const colors = {
   dark12: 'rgba(34, 34, 34, .12)',
 } as const
 
+export type Color = keyof typeof colors
+
 export default colors

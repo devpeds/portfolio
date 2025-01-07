@@ -31,6 +31,7 @@ const globalStyles = css({
   button: {
     backgroundColor: 'transparent',
     border: 0,
+    color: 'inherit',
   },
   'button:not(:disabled),[type="button"]:not(:disabled)': {
     cursor: 'pointer',

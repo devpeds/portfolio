@@ -26,7 +26,6 @@ const menuCss = {
   item: css(
     {
       padding: paddingXY(24, 12),
-      color: 'inherit',
       fontSize: '1.2em',
       fontWeight: 700,
       width: '100%',
