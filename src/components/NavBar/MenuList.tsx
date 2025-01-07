@@ -3,7 +3,7 @@ import { ReactElement, useRef } from 'react'
 
 import { colors } from '../../styles'
 import { Menu } from '../../types'
-import { hoverStyle, mediaQueryWidth, paddingXY } from '../../utils/styleUtil'
+import { hoverStyle, mediaQueryWidth, spacingXY } from '../../utils/styleUtil'
 
 const menuCss = {
   nav: css({
@@ -26,13 +26,13 @@ const menuCss = {
   }),
   item: css(
     {
-      padding: paddingXY(24, 12),
+      padding: spacingXY(24, 12),
       fontSize: '1.2em',
       fontWeight: 700,
       width: '100%',
       textAlign: 'start',
       [mediaQueryWidth('md')]: {
-        padding: paddingXY(16, 12),
+        padding: spacingXY(16, 12),
         textAlign: 'center',
         borderRadius: 8,
       },

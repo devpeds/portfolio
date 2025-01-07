@@ -6,7 +6,7 @@ import Container from '../Container'
 import MenuList from './MenuList'
 import { SvgMenu } from '../../assets/svg'
 import { Menu } from '../../types'
-import { paddingXY } from '../../utils/styleUtil'
+import { spacingXY } from '../../utils/styleUtil'
 import IconButton from '../IconButton'
 
 const navBarCss = {
@@ -31,7 +31,7 @@ const navBarCss = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: paddingXY(20, 16),
+    padding: spacingXY(20, 16),
   }),
   title: css({
     fontSize: '1.8em',

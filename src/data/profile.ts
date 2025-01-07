@@ -10,6 +10,11 @@ const detail = import('./projects/playwings-renewal.md?raw').then(
 const profile: Profile = {
   name: '정승훈',
   aka: '페즈',
+  contacts: {
+    email: 'hugh1127@gmail.com',
+    github: 'https://github.com/devpeds',
+    linkedin: 'https://www.linkedin.com/in/seunghoon-jung-041a811a5/',
+  },
   skills: {
     Languages: [Skill.ts, Skill.dart],
     Frontend: [Skill.react, Skill.next, Skill.gatsby, Skill.rn, Skill.flutter],

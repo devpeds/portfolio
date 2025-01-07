@@ -78,7 +78,7 @@ function App(): ReactElement {
         </Container>
       </div>
       <Container>
-        <Footer />
+        <Footer contacts={profile.contacts} />
       </Container>
     </>
   )

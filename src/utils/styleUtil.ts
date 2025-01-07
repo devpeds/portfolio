@@ -6,11 +6,11 @@ export function mediaQueryWidth(breakPoint: BreakPoint): string {
   return `@media (min-width: ${breakpoints[breakPoint]}px)`
 }
 
-export function paddingXY(x: number, y: number): string {
+export function spacingXY(x: number, y: number): string {
   return `${y}px ${x}px`
 }
 
-export function paddingLRTB(
+export function spacingLRTB(
   left: number,
   right: number,
   top: number,

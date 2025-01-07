@@ -1,6 +1,8 @@
 const colors = {
   white: '#ffffff',
   white87: 'rgba(255, 255, 255, .87)',
+  white60: 'rgba(255, 255, 255, .60)',
+  white33: 'rgba(255, 255, 255, .33)',
   black: '#000000',
   black60: 'rgba(0, 0, 0, .60)',
   black12: 'rgba(0, 0, 0, .12)',
