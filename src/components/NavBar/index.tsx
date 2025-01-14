@@ -99,7 +99,7 @@ function NavBar({ menus }: Props): ReactElement {
     >
       <Container>
         <div ref={ref} css={navBarCss.inner}>
-          <h1 css={navBarCss.title}>PEDS' PORTFOLIO</h1>
+          <h1 css={navBarCss.title}>PEDSFOLIO</h1>
           {isDesktop === true && menuList}
           {isDesktop === false && (
             <IconButton
