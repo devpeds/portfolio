@@ -1,11 +1,12 @@
 import { css } from '@emotion/react'
 import { ComponentProps, ComponentType, ReactElement } from 'react'
 
-import { SvgEmail, SvgGithub, SvgLinkedin } from '../assets/svg'
-import { colors } from '../styles'
-import { Contacts } from '../types'
+import { SvgEmail, SvgGithub, SvgLinkedin } from '@/assets/svg'
+import { colors } from '@/styles'
+import { Contacts } from '@/types'
+import { hoverStyle, spacingXY } from '@/utils/styleUtil'
+
 import IconButton from './IconButton'
-import { hoverStyle, spacingXY } from '../utils/styleUtil'
 
 interface ContactItem {
   Icon: ComponentType<ComponentProps<'svg'>>

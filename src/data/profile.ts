@@ -1,6 +1,6 @@
-import backgroundImg from '../assets/background.png'
-import { Skill } from '../enums'
-import { Profile } from '../types'
+import backgroundImg from '@/assets/background.png'
+import { Skill } from '@/enums'
+import { Profile } from '@/types'
 
 function getMarkdown({ markdown }: typeof import('*.md')): string {
   return markdown

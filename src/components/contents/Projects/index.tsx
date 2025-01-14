@@ -1,11 +1,12 @@
 import { css } from '@emotion/react'
 import { ReactElement, useState } from 'react'
 
+import SkillChips from '@/components/SkillChips'
+import { breakpoints, colors } from '@/styles'
+import { Project } from '@/types'
+import { formatInterval } from '@/utils/dateUtil'
+
 import ProjectDetailModal from './ProjectDetailModal'
-import { breakpoints, colors } from '../../../styles'
-import { Project } from '../../../types'
-import { formatInterval } from '../../../utils/dateUtil'
-import SkillChips from '../../SkillChips'
 
 const gap = 32
 const numberOfRows = 2

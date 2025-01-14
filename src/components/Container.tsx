@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { breakpoints } from '../styles'
+import { breakpoints } from '@/styles'
 
 const Container = styled.div({
   margin: '0 auto',

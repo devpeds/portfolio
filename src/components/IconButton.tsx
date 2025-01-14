@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { ComponentProps, ComponentType, ReactElement } from 'react'
 
-import { Color, colors } from '../styles'
-import { HTMLComponentProps } from '../types'
-import { hoverStyle, parseColor } from '../utils/styleUtil'
+import { Color, colors } from '@/styles'
+import { HTMLComponentProps } from '@/types'
+import { hoverStyle, parseColor } from '@/utils/styleUtil'
 
 const buttonCss = {
   self: css({

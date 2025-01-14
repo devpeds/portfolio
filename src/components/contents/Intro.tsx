@@ -3,10 +3,10 @@ import GraphemeSplitter from 'grapheme-splitter'
 import { ReactElement } from 'react'
 import TypewriterComponent from 'typewriter-effect'
 
-import backgroundImg from '../../assets/background.png'
-import { colors } from '../../styles'
-import { mediaQueryWidth } from '../../utils/styleUtil'
-import Container from '../Container'
+import backgroundImg from '@/assets/background.png'
+import Container from '@/components/Container'
+import { colors } from '@/styles'
+import { mediaQueryWidth } from '@/utils/styleUtil'
 
 const introCss = {
   self: css({

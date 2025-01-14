@@ -1,4 +1,4 @@
-import { Skill } from '../enums'
+import { Skill } from '@/enums'
 
 interface Project {
   name: string

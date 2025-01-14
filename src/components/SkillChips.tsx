@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
 
-import { Skill } from '../enums'
-import { colors } from '../styles'
-import { spacingXY } from '../utils/styleUtil'
+import { Skill } from '@/enums'
+import { colors } from '@/styles'
+import { spacingXY } from '@/utils/styleUtil'
 
 const chipsCss = {
   list: css({

@@ -47,11 +47,15 @@ export default tseslint.config(
           named: true,
           alphabetize: { order: 'asc', caseInsensitive: false },
           groups: [['builtin', 'external', 'internal']],
+          pathGroups: [
+            { pattern: '@/**', group: 'internal', position: 'after' },
+          ],
           'newlines-between': 'always',
         },
       ],
       'import/named': 'off',
-      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

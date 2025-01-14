@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
 
-import { Skill } from '../../enums'
-import { breakpoints, colors } from '../../styles'
-import SkillChips from '../SkillChips'
+import SkillChips from '@/components/SkillChips'
+import { Skill } from '@/enums'
+import { breakpoints, colors } from '@/styles'
 
 const skillsCss = {
   card: css({

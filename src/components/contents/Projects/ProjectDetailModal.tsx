@@ -6,10 +6,10 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
 import 'highlight.js/styles/github.css'
 
-import { Project } from '../types'
-import Modal from './Modal'
-import { colors } from '../styles'
-import { spacingLRTB, spacingXY } from '../utils/styleUtil'
+import Modal from '@/components/Modal'
+import { colors } from '@/styles'
+import { Project } from '@/types'
+import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
 
 const modalCss = {
   self: css({

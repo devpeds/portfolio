@@ -2,10 +2,11 @@ import { css } from '@emotion/react'
 import { ComponentType, ReactElement, ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
-import { breakpoints, colors } from '../styles'
+import { SvgClose } from '@/assets/svg'
+import { breakpoints, colors } from '@/styles'
+import { spacingXY } from '@/utils/styleUtil'
+
 import IconButton from './IconButton'
-import { SvgClose } from '../assets/svg'
-import { spacingXY } from '../utils/styleUtil'
 
 const modalCss = {
   overlay: css({

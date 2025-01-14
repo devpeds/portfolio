@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-import { HTMLComponentType } from '../types'
+import { HTMLComponentType } from '@/types'
 
 type SectionComponent = HTMLComponentType<HTMLElement> & {
   Title: HTMLComponentType<HTMLHeadingElement>

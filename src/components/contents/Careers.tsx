@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
 
-import { colors } from '../../styles'
-import { Career } from '../../types'
-import { formatDuration, formatInterval } from '../../utils/dateUtil'
+import { colors } from '@/styles'
+import { Career } from '@/types'
+import { formatDuration, formatInterval } from '@/utils/dateUtil'
 
 const headerSpacing = 12
 const markerSize = 15

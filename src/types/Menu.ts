@@ -1,4 +1,4 @@
-import { SectionId } from '../enums'
+import { SectionId } from '@/enums'
 
 interface Menu {
   id: SectionId

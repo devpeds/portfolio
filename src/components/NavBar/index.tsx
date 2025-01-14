@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 
-import { breakpoints, colors } from '../../styles'
-import Container from '../Container'
+import { SvgMenu } from '@/assets/svg'
+import Container from '@/components/Container'
+import IconButton from '@/components/IconButton'
+import { breakpoints, colors } from '@/styles'
+import { Menu } from '@/types'
+import { spacingXY } from '@/utils/styleUtil'
+
 import MenuList from './MenuList'
-import { SvgMenu } from '../../assets/svg'
-import { Menu } from '../../types'
-import { spacingXY } from '../../utils/styleUtil'
-import IconButton from '../IconButton'
 
 const navBarCss = {
   self: css({

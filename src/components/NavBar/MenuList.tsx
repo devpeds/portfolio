@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import { ReactElement, useRef } from 'react'
 
-import { colors } from '../../styles'
-import { Menu } from '../../types'
-import { hoverStyle, mediaQueryWidth, spacingXY } from '../../utils/styleUtil'
+import { colors } from '@/styles'
+import { Menu } from '@/types'
+import { hoverStyle, mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
 
 const menuCss = {
   nav: css({

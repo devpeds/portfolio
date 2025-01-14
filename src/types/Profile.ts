@@ -1,7 +1,8 @@
+import { Skill } from '@/enums'
+
 import Career from './Career'
-import Project from './Project'
-import { Skill } from '../enums'
 import Contacts from './Contacts'
+import Project from './Project'
 
 interface Profile {
   name: string

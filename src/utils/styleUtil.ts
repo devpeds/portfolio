@@ -1,6 +1,6 @@
 import { CSSInterpolation } from '@emotion/serialize'
 
-import { BreakPoint, breakpoints } from '../styles'
+import { BreakPoint, breakpoints } from '@/styles'
 
 export function mediaQueryWidth(breakPoint: BreakPoint): string {
   return `@media (min-width: ${breakpoints[breakPoint]}px)`
