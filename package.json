@@ -14,10 +14,13 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "grapheme-splitter": "^1.0.4",
+    "highlight.js": "^11.11.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
     "react18-use": "^0.3.0",
+    "rehype-highlight": "^7.0.1",
+    "rehype-raw": "^7.0.0",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

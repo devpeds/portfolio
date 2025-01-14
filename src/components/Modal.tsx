@@ -1,8 +1,11 @@
 import { css } from '@emotion/react'
-import { ReactElement, ReactNode, useEffect } from 'react'
+import { ComponentType, ReactElement, ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 import { breakpoints, colors } from '../styles'
+import IconButton from './IconButton'
+import { SvgClose } from '../assets/svg'
+import { spacingXY } from '../utils/styleUtil'
 
 const modalCss = {
   overlay: css({
@@ -12,7 +15,7 @@ const modalCss = {
     zIndex: 100,
   }),
   container: css({
-    position: 'absolute',
+    position: 'relative',
     top: '50%',
     transform: 'translate(0, -50%)',
     margin: 'auto',
@@ -28,16 +31,33 @@ const modalCss = {
       maxWidth: breakpoints.lg - 160,
     },
   }),
+  header: css({
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    position: 'sticky',
+    top: 0,
+    fontSize: '1.2em',
+    fontWeight: 700,
+    padding: spacingXY(24, 16),
+    backgroundColor: colors.white87,
+    backdropFilter: 'blur(6px)',
+  }),
 }
 
-interface Props {
+type ModalComponent = ComponentType<ModalProps> & {
+  Header: ComponentType<ModalHeaderProps>
+}
+
+interface ModalProps {
   className?: string
   open?: boolean
   onClose?: () => void
   children: ReactNode
 }
 
-function Modal(props: Props): ReactElement {
+const Modal: ModalComponent = (props: ModalProps): ReactElement => {
   const { className, open, onClose, children } = props
 
   useEffect(() => {
@@ -61,6 +81,21 @@ function Modal(props: Props): ReactElement {
   )
 
   return createPortal(modal, document.body)
+}
+
+interface ModalHeaderProps {
+  onClose?: () => void
+  children: ReactNode
+}
+
+Modal.Header = (props: ModalHeaderProps): ReactElement => {
+  const { onClose, children } = props
+  return (
+    <div css={modalCss.header}>
+      {children}
+      <IconButton onClick={onClose} Icon={SvgClose} />
+    </div>
+  )
 }
 
 export default Modal

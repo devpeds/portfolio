@@ -2,21 +2,25 @@ import { css } from '@emotion/react'
 import { ReactElement, Suspense } from 'react'
 import Markdown from 'react-markdown'
 import { use } from 'react18-use'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeRaw from 'rehype-raw'
+import 'highlight.js/styles/github.css'
 
 import { Project } from '../types'
-import IconButton from './IconButton'
 import Modal from './Modal'
-import { SvgClose } from '../assets/svg'
+import { colors } from '../styles'
+import { spacingLRTB, spacingXY } from '../utils/styleUtil'
 
 const modalCss = {
   self: css({
-    position: 'relative',
     height: '100%',
-    padding: 24,
+  }),
+  contents: css({
+    padding: spacingLRTB(24, 24, 0, 24),
     '& h1': {
       marginBottom: 32,
     },
-    '& h2, h3, p': {
+    '& h2, h3, p, pre': {
       marginBottom: 16,
     },
     '& ul, ol': {
@@ -27,13 +31,20 @@ const modalCss = {
     '& li': {
       marginBottom: 8,
     },
-  }),
-  close: css({
-    position: 'absolute',
-    top: 24,
-    right: 24,
-    marginTop: -8,
-    marginRight: -8,
+    '& summary': {
+      padding: spacingXY(0, 12),
+      fontSize: '1.2em',
+      fontWeight: 700,
+    },
+    '& p code': {
+      backgroundColor: colors.lightGray,
+      color: 'red',
+      padding: 4,
+      borderRadius: 4,
+    },
+    '& pre code': {
+      borderRadius: 8,
+    },
   }),
 }
 
@@ -43,7 +54,9 @@ interface ContentProps {
 
 function ProjectDetailContent(props: ContentProps): ReactElement {
   const content = use(props.content)
-  return <Markdown>{content}</Markdown>
+  return (
+    <Markdown rehypePlugins={[rehypeRaw, rehypeHighlight]}>{content}</Markdown>
+  )
 }
 
 interface Props {
@@ -57,10 +70,12 @@ function ProjectDetailModal(props: Props): ReactElement {
 
   return (
     <Modal css={modalCss.self} open={open} onClose={onClose}>
-      <Suspense>
-        <ProjectDetailContent content={project.detail} />
-      </Suspense>
-      <IconButton css={modalCss.close} onClick={onClose} Icon={SvgClose} />
+      <Modal.Header onClose={onClose}>Project Details</Modal.Header>
+      <div css={modalCss.contents}>
+        <Suspense>
+          <ProjectDetailContent content={project.detail} />
+        </Suspense>
+      </div>
     </Modal>
   )
 }
