@@ -15,6 +15,7 @@ const sectionCss = {
   title: css({
     fontSize: '2em',
     marginBottom: 32,
+    fontWeight: 900,
   }),
 }
 

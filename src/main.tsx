@@ -10,9 +10,10 @@ const globalStyles = css({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+    lineHeight: 1.5,
   },
   ':root': {
-    fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
+    fontFamily: '"NanumSquare Neo", sans-serif',
     fontSynthesis: 'none',
     textRendering: 'optimizeLegibility',
     WebkitFontSmoothing: 'antialiased',
@@ -32,6 +33,7 @@ const globalStyles = css({
     backgroundColor: 'transparent',
     border: 0,
     color: 'inherit',
+    fontFamily: 'inherit',
   },
   'button:not(:disabled),[type="button"]:not(:disabled)': {
     cursor: 'pointer',

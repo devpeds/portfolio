@@ -60,7 +60,6 @@ const projectsCss = {
   }),
   description: css({
     flex: 1,
-    lineHeight: 1.5,
     marginBottom: 24,
   }),
   techStack: css({
@@ -68,7 +67,7 @@ const projectsCss = {
     fontSize: 16,
     lineHeight: '20px',
     gap: 8,
-    height: 30,
+    height: 34,
     overflow: 'hidden',
   }),
 }

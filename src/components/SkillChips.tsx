@@ -3,6 +3,7 @@ import { ReactElement } from 'react'
 
 import { Skill } from '../enums'
 import { colors } from '../styles'
+import { spacingXY } from '../utils/styleUtil'
 
 const chipsCss = {
   list: css({
@@ -12,7 +13,7 @@ const chipsCss = {
     gap: 12,
   }),
   item: css({
-    padding: '4px 12px',
+    padding: spacingXY(12, 4),
     borderRadius: 8,
     fontWeight: 700,
   }),
