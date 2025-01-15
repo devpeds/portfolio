@@ -27,7 +27,7 @@ const menuCss = {
   item: css(
     {
       padding: spacingXY(24, 12),
-      fontSize: '1.2em',
+      fontSize: '1em',
       fontWeight: 700,
       width: '100%',
       textAlign: 'start',

@@ -31,12 +31,13 @@ const navBarCss = {
   inner: css({
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    padding: spacingXY(20, 16),
+    padding: spacingXY(20, 10),
   }),
   title: css({
-    fontSize: '1.8em',
-    lineHeight: '48px',
+    fontSize: '1.2em',
+    lineHeight: '40px',
   }),
   menuButton: css({
     marginRight: -8,
