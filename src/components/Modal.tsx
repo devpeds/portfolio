@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom'
 
 import { SvgClose } from '@/assets/svg'
 import { breakpoints, colors } from '@/styles'
-import { spacingXY } from '@/utils/styleUtil'
+import { mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
 
 import IconButton from './IconButton'
 
@@ -20,16 +20,16 @@ const modalCss = {
     top: '50%',
     transform: 'translate(0, -50%)',
     margin: 'auto',
-    maxWidth: 'calc(100% - 80px)',
+    maxWidth: 'calc(100% - 40px)',
     width: '100%',
-    maxHeight: 'calc(100vh - 160px)',
+    maxHeight: 'max(calc(100vh - 160px), 80vh)',
     overflow: 'scroll',
     scrollbarWidth: 'none',
     backgroundColor: colors.white,
     borderRadius: 16,
     color: colors.dark87,
-    [`@media (min-width: ${breakpoints.lg}px)`]: {
-      maxWidth: breakpoints.lg - 160,
+    [mediaQueryWidth('sm')]: {
+      maxWidth: `min(100% - 80px, ${breakpoints.lg - 160}px)`,
     },
   }),
   header: css({
