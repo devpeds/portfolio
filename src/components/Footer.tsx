@@ -10,6 +10,7 @@ import IconButton from './IconButton'
 
 interface ContactItem {
   Icon: ComponentType<ComponentProps<'svg'>>
+  label: string
   url: string
   target: string
 }
@@ -65,9 +66,24 @@ interface Props {
 function Footer(props: Props): ReactElement {
   const { contacts } = props
   const contactList: ContactItem[] = [
-    { Icon: SvgEmail, url: `mailto: ${contacts.email}`, target: '_self' },
-    { Icon: SvgGithub, url: contacts.github, target: '_blank' },
-    { Icon: SvgLinkedin, url: contacts.linkedin, target: '_blank' },
+    {
+      Icon: SvgEmail,
+      label: '이메일',
+      url: `mailto: ${contacts.email}`,
+      target: '_self',
+    },
+    {
+      Icon: SvgGithub,
+      label: '깃헙',
+      url: contacts.github,
+      target: '_blank',
+    },
+    {
+      Icon: SvgLinkedin,
+      label: '링크드인',
+      url: contacts.linkedin,
+      target: '_blank',
+    },
   ]
   return (
     <footer css={footerCss.self}>
@@ -78,6 +94,7 @@ function Footer(props: Props): ReactElement {
             <IconButton
               key={item.url}
               css={footerCss.contact}
+              aria-label={item.label}
               Icon={item.Icon}
               onClick={() => window.open(item.url, item.target)}
             />

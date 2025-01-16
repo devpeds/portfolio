@@ -94,7 +94,7 @@ Modal.Header = (props: ModalHeaderProps): ReactElement => {
   return (
     <div css={modalCss.header}>
       {children}
-      <IconButton onClick={onClose} Icon={SvgClose} />
+      <IconButton aria-label="닫기" onClick={onClose} Icon={SvgClose} />
     </div>
   )
 }

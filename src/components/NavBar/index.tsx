@@ -108,6 +108,7 @@ function NavBar({ menus }: Props): ReactElement {
               css={navBarCss.menuButton}
               onClick={() => setMenuOpen((prev) => !prev)}
               color={isScrolled ? 'dark87' : 'white'}
+              aria-label="메뉴"
               Icon={SvgMenu}
             />
           )}

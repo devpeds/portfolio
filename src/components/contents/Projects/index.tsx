@@ -84,7 +84,7 @@ function ProjectCard(props: CardProps): ReactElement {
   return (
     <>
       <button css={projectsCss.item} onClick={() => setSelected(true)}>
-        <img css={projectsCss.image} src={project.image} />
+        <img css={projectsCss.image} src={project.image} alt={project.name} />
         <div css={projectsCss.content}>
           <div css={projectsCss.period}>
             {formatInterval(project.startAt, project.endAt)}
