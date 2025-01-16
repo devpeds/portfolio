@@ -35,11 +35,14 @@ const menus: SectionData[] = [
   },
 ]
 
-const containerCss = css({
-  backgroundColor: colors.lightGray,
-  flex: 1,
-  zIndex: 1,
-})
+const pageCss = {
+  contents: css({
+    flex: 1,
+  }),
+  footer: css({
+    backgroundColor: colors.dark,
+  }),
+}
 
 function App(): ReactElement {
   useEffect(() => {
@@ -64,7 +67,7 @@ function App(): ReactElement {
     <>
       <NavBar menus={menus} />
       <Intro name={profile.name} aka={profile.aka} />
-      <div css={containerCss}>
+      <div css={pageCss.contents}>
         <Container>
           {menus.map((menu) => (
             <Fragment key={menu.id}>
@@ -77,9 +80,11 @@ function App(): ReactElement {
           ))}
         </Container>
       </div>
-      <Container>
-        <Footer contacts={profile.contacts} />
-      </Container>
+      <div css={pageCss.footer}>
+        <Container>
+          <Footer contacts={profile.contacts} />
+        </Container>
+      </div>
     </>
   )
 }

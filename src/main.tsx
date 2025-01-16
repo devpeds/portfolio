@@ -32,7 +32,7 @@ const globalStyles = css({
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
     color: colors.dark87,
-    backgroundColor: colors.dark,
+    backgroundColor: colors.lightGray,
   },
   '#root': {
     display: 'flex',

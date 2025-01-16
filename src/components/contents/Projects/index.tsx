@@ -41,6 +41,7 @@ const projectsCss = {
   image: css({
     objectFit: 'cover',
     aspectRatio: 16 / 9,
+    width: '100%',
   }),
   content: css({
     flex: 1,

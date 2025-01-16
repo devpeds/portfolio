@@ -20,8 +20,9 @@ const navBarCss = {
     transition: 'all .2s',
   }),
   light: css({
-    backgroundColor: colors.white,
     color: colors.dark87,
+    background: `linear-gradient(180deg, ${colors.lightGray} 0, ${colors.lightGray87} 100%)`,
+    backdropFilter: 'blur(6px)',
     boxShadow: `0 0px 8px ${colors.dark12}`,
   }),
   dark: css({
@@ -56,7 +57,7 @@ function NavBar({ menus }: Props): ReactElement {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 300)
+      setScrolled(window.scrollY > 200)
     }
 
     window.addEventListener('scroll', onScroll)

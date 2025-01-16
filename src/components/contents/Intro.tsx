@@ -10,19 +10,17 @@ import { mediaQueryWidth } from '@/utils/styleUtil'
 
 const introCss = {
   self: css({
-    position: 'sticky',
-    top: 0,
+    position: 'relative',
     minHeight: 480,
     color: colors.white,
+    background: `radial-gradient(circle, ${colors.dark87} 0, ${colors.dark} 100%), url(${backgroundImg}) 50% no-repeat`,
+    backgroundSize: 'cover',
     '&::before': {
       content: '""',
       position: 'absolute',
       inset: 0,
-      opacity: 0.4,
       isolation: 'isolate',
-      background: `radial-gradient(circle, ${colors.dark60} 0, ${colors.dark87} 100%), url(${backgroundImg}) 50% no-repeat`,
-      backgroundSize: 'cover',
-      filter: 'grayscale(70%)',
+      backdropFilter: 'grayscale(100%)',
     },
   }),
   container: css({
