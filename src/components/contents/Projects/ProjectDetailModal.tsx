@@ -1,15 +1,12 @@
 import { css } from '@emotion/react'
-import { ReactElement, Suspense } from 'react'
-import Markdown from 'react-markdown'
-import { use } from 'react18-use'
-import rehypeHighlight from 'rehype-highlight'
-import rehypeRaw from 'rehype-raw'
-import 'highlight.js/styles/github.css'
+import { ReactElement, Suspense, lazy } from 'react'
 
 import Modal from '@/components/Modal'
 import { colors } from '@/styles'
 import { Project } from '@/types'
 import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
+
+const MarkdownContent = lazy(() => import('@/components/MarkdownContent'))
 
 const modalCss = {
   self: css({
@@ -48,17 +45,6 @@ const modalCss = {
   }),
 }
 
-interface ContentProps {
-  content: Promise<string>
-}
-
-function ProjectDetailContent(props: ContentProps): ReactElement {
-  const content = use(props.content)
-  return (
-    <Markdown rehypePlugins={[rehypeRaw, rehypeHighlight]}>{content}</Markdown>
-  )
-}
-
 interface Props {
   project: Project
   open?: boolean
@@ -73,7 +59,7 @@ function ProjectDetailModal(props: Props): ReactElement {
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
       <div css={modalCss.contents}>
         <Suspense>
-          <ProjectDetailContent content={project.detail} />
+          <MarkdownContent content={project.detail} />
         </Suspense>
       </div>
     </Modal>
