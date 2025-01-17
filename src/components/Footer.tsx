@@ -4,7 +4,7 @@ import { ComponentProps, ComponentType, ReactElement } from 'react'
 import { SvgEmail, SvgGithub, SvgLinkedin } from '@/assets/svg'
 import { colors } from '@/styles'
 import { Contacts } from '@/types'
-import { hoverStyle, spacingXY } from '@/utils/styleUtil'
+import { hoverStyle, spacingLRTB, spacingXY } from '@/utils/styleUtil'
 
 import IconButton from './IconButton'
 
@@ -24,10 +24,10 @@ const footerCss = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: spacingXY(20, 48),
+    padding: spacingLRTB(20, 20, 120, 80),
   }),
   title: css({
-    fontSize: '3em',
+    fontSize: '2.5em',
   }),
   contacts: css({
     display: 'flex',
