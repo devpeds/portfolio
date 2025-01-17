@@ -1,4 +1,4 @@
-import backgroundImg from '@/assets/background.png'
+import backgroundImg from '@/assets/images/background.png'
 import { Skill } from '@/enums'
 import { Profile } from '@/types'
 

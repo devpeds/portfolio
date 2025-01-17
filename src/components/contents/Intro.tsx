@@ -3,7 +3,7 @@ import GraphemeSplitter from 'grapheme-splitter'
 import { ReactElement } from 'react'
 import TypewriterComponent from 'typewriter-effect'
 
-import backgroundImg from '@/assets/background.png'
+import backgroundImg from '@/assets/images/background.png'
 import Container from '@/components/Container'
 import { colors } from '@/styles'
 import { mediaQueryWidth } from '@/utils/styleUtil'
