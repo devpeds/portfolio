@@ -2,8 +2,12 @@ import { CSSInterpolation } from '@emotion/serialize'
 
 import { BreakPoint, breakpoints } from '@/styles'
 
+export function mediaQueryConditionWidth(breakPoint: BreakPoint): string {
+  return `(min-width: ${breakpoints[breakPoint]}px)`
+}
+
 export function mediaQueryWidth(breakPoint: BreakPoint): string {
-  return `@media (min-width: ${breakpoints[breakPoint]}px)`
+  return `@media ${mediaQueryConditionWidth(breakPoint)}`
 }
 
 export function spacingXY(x: number, y: number): string {

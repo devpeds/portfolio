@@ -4,9 +4,9 @@ import { ReactElement, useEffect, useRef, useState } from 'react'
 import { SvgMenu } from '@/assets/svg'
 import Container from '@/components/Container'
 import IconButton from '@/components/IconButton'
-import { breakpoints, colors } from '@/styles'
+import { colors } from '@/styles'
 import { Menu } from '@/types'
-import { spacingXY } from '@/utils/styleUtil'
+import { mediaQueryConditionWidth, spacingXY } from '@/utils/styleUtil'
 
 import MenuList from './MenuList'
 
@@ -66,14 +66,12 @@ function NavBar({ menus }: Props): ReactElement {
   }, [])
 
   useEffect(() => {
-    const onResize = () => {
-      setDesktop(window.innerWidth >= breakpoints.md)
-    }
+    const matchMedia = window.matchMedia(mediaQueryConditionWidth('md'))
+    const onMatchMedia = (e: MediaQueryListEvent) => setDesktop(e.matches)
 
-    onResize()
-    window.addEventListener('resize', onResize)
-
-    return () => window.removeEventListener('resize', onResize)
+    setDesktop(matchMedia.matches)
+    matchMedia.addEventListener('change', onMatchMedia)
+    return () => matchMedia.removeEventListener('change', onMatchMedia)
   }, [])
 
   const onMenuItemClick = (menu: Menu) => {
