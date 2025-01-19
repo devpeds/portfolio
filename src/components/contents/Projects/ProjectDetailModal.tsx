@@ -15,7 +15,7 @@ const modalCss = {
   contents: css({
     padding: spacingLRTB(24, 24, 0, 24),
     '& h1': {
-      marginBottom: 32,
+      marginBottom: 24,
     },
     '& h2, h3, p, pre': {
       marginBottom: 16,
