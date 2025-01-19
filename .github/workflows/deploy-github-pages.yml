@@ -22,7 +22,10 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
+        run: |
+          REPOSITORY_NAME=${{ github.repository }}
+          BASE_PATH=${REPOSITORY_NAME#*/}
+          yarn build --base=/$BASE_PATH/
 
       - name: Deploy on Github Pages
         uses: peaceiris/actions-gh-pages@v4
