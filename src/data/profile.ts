@@ -1,4 +1,4 @@
-import backgroundImg from '@/assets/images/background.png'
+import { thumbnail } from '@/assets/images/projects'
 import { Skill } from '@/enums'
 import { Profile } from '@/types'
 
@@ -72,16 +72,16 @@ const profile: Profile = {
   projects: [
     {
       name: '빌리피(Beliefy)',
-      image: backgroundImg,
+      image: thumbnail.beliefy,
       startAt: new Date(2023, 9),
-      endAt: new Date(2024, 11),
+      endAt: new Date(2024, 10),
       techStack: [Skill.dart, Skill.flutter, Skill.bloc],
       description: '인증 기반 데이팅 앱',
       detail: import('./projects/beliefy.md').then(getMarkdown),
     },
     {
       name: '알통(Altong)',
-      image: backgroundImg,
+      image: thumbnail.altong,
       startAt: new Date(2023, 8),
       endAt: new Date(2023, 9),
       techStack: [Skill.ts, Skill.next, Skill.mui, Skill.tailwind],
@@ -90,7 +90,7 @@ const profile: Profile = {
     },
     {
       name: '프루피(Proofy)',
-      image: backgroundImg,
+      image: thumbnail.proofy,
       startAt: new Date(2023, 6),
       endAt: new Date(2024, 5),
       techStack: [
@@ -105,7 +105,7 @@ const profile: Profile = {
     },
     {
       name: '플레이윙즈 웹 어플리케이션',
-      image: backgroundImg,
+      image: thumbnail.playwingsWeb,
       startAt: new Date(2021, 0),
       endAt: new Date(2023, 5),
       techStack: [
@@ -122,7 +122,7 @@ const profile: Profile = {
     },
     {
       name: '플레이윙즈 리뉴얼 프로젝트',
-      image: backgroundImg,
+      image: thumbnail.playwingsRenewal,
       startAt: new Date(2020, 2),
       endAt: new Date(2022, 2),
       techStack: [Skill.ts, Skill.rn, Skill.mobx, Skill.graphql],
