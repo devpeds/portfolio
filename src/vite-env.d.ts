@@ -11,3 +11,12 @@ declare module '*.md' {
   // Modify below per your usage
   export { attributes, markdown }
 }
+
+interface ImportMetaEnv {
+  readonly VITE_APP_TITLE: string
+  readonly VITE_APP_ORIGIN: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
