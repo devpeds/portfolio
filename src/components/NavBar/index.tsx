@@ -35,6 +35,7 @@ const navBarCss = {
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: spacingXY(20, 10),
+    paddingTop: `calc(${10}px + env(safe-area-inset-top))`,
   }),
   title: css({
     fontSize: '1.2em',

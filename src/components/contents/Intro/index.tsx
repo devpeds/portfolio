@@ -29,7 +29,7 @@ const introCss = {
   container: css({
     position: 'absolute',
     inset: 0,
-    paddingTop: 80,
+    paddingTop: `calc(80px + env(safe-area-inset-top))`,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
