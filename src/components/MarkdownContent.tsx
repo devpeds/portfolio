@@ -12,7 +12,12 @@ function MarkdownContent(props: Props): ReactElement {
   const content =
     typeof props.content === 'string' ? props.content : use(props.content)
   return (
-    <Markdown rehypePlugins={[rehypeHighlight, rehypeRaw]}>{content}</Markdown>
+    <Markdown
+      rehypePlugins={[rehypeHighlight, rehypeRaw]}
+      components={{ a: (props) => <a {...props} target="blank" /> }}
+    >
+      {content}
+    </Markdown>
   )
 }
 
