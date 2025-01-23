@@ -3,8 +3,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import App from './App.tsx'
-import nanumSquareNeoWoff from './assets/fonts/NanumSquareNeo-Variable.woff'
-import nanumSquareNeoWoff2 from './assets/fonts/NanumSquareNeo-Variable.woff2'
+import nanumSquareNeoWoff from './assets/fonts/NanumSquareNeo-Variable-subset.woff'
+import nanumSquareNeoWoff2 from './assets/fonts/NanumSquareNeo-Variable-subset.woff2'
 import Seo from './components/Seo.tsx'
 import colors from './styles/colors.ts'
 
