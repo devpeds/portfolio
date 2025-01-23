@@ -67,8 +67,8 @@ function App(): ReactElement {
       <Container>
         {menus.map((menu) => (
           <Fragment key={menu.id}>
-            <Section id={menu.id}>
-              <Section.Title>{menu.name}</Section.Title>
+            <Section>
+              <Section.Title id={menu.id}>{menu.name}</Section.Title>
               {menu.component}
             </Section>
             {menu.divider && <hr />}
