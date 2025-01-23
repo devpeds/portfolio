@@ -23,12 +23,15 @@ export function spacingLRTB(
   return `${top}px ${right}px ${bottom}px ${left}px`
 }
 
-export function hoverStyle(css: CSSInterpolation): CSSInterpolation {
+export function hoverStyle(
+  css: CSSInterpolation,
+  mobileStyle: 'active' | 'none' = 'active',
+): CSSInterpolation {
   return {
     '@media (hover: hover) and (pointer: fine)': {
       '&:hover': css,
     },
-    '&:active': css,
+    ...(mobileStyle === 'active' ? { '&:active': css } : undefined),
   }
 }
 
