@@ -5,6 +5,7 @@ import SkillChips from '@/components/SkillChips'
 import { breakpoints, colors } from '@/styles'
 import { Project } from '@/types'
 import { formatInterval } from '@/utils/dateUtil'
+import { hoverStyle } from '@/utils/styleUtil'
 
 import ProjectDetailModal from './ProjectDetailModal'
 
@@ -18,26 +19,26 @@ const projectsCss = {
     flexWrap: 'wrap',
     gap: 32,
   }),
-  item: css({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    backgroundColor: colors.white,
-    color: colors.dark87,
-    fontSize: '1em',
-    textAlign: 'left',
-    width: '100%',
-    borderRadius: 16,
-    overflow: 'hidden',
-    transition: 'transform .1s',
-    boxShadow: `0 0 16px 0 ${colors.black12}`,
-    [`@media (min-width: ${breakpoints.sm}px)`]: {
-      width: `calc((100% - ${gap}px) / ${numberOfRows})`,
+  item: css(
+    {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      backgroundColor: colors.white,
+      color: colors.dark87,
+      fontSize: '1em',
+      textAlign: 'left',
+      width: '100%',
+      borderRadius: 16,
+      overflow: 'hidden',
+      transition: 'transform .1s',
+      boxShadow: `0 0 16px 0 ${colors.black12}`,
+      [`@media (min-width: ${breakpoints.sm}px)`]: {
+        width: `calc((100% - ${gap}px) / ${numberOfRows})`,
+      },
     },
-    '&:hover': {
-      transform: 'scale(1.05)',
-    },
-  }),
+    hoverStyle({ transform: 'scale(1.05)' }, 'none'),
+  ),
   image: css({
     objectFit: 'cover',
     aspectRatio: 16 / 9,

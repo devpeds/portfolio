@@ -51,7 +51,7 @@ const careersCss = {
   }),
   title: css({
     fontSize: '1.5em',
-    fontWeight: 600,
+    fontWeight: 700,
     marginBottom: 8,
   }),
   description: css({

@@ -36,9 +36,6 @@ const menus: SectionData[] = [
 ]
 
 const pageCss = {
-  contents: css({
-    flex: 1,
-  }),
   footer: css({
     backgroundColor: colors.dark,
   }),
@@ -67,19 +64,17 @@ function App(): ReactElement {
     <>
       <NavBar menus={menus} />
       <Intro name={profile.name} aka={profile.aka} />
-      <div css={pageCss.contents}>
-        <Container>
-          {menus.map((menu) => (
-            <Fragment key={menu.id}>
-              <Section id={menu.id}>
-                <Section.Title>{menu.name}</Section.Title>
-                {menu.component}
-              </Section>
-              {menu.divider && <hr />}
-            </Fragment>
-          ))}
-        </Container>
-      </div>
+      <Container>
+        {menus.map((menu) => (
+          <Fragment key={menu.id}>
+            <Section>
+              <Section.Title id={menu.id}>{menu.name}</Section.Title>
+              {menu.component}
+            </Section>
+            {menu.divider && <hr />}
+          </Fragment>
+        ))}
+      </Container>
       <div css={pageCss.footer}>
         <Container>
           <Footer contacts={profile.contacts} />

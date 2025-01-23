@@ -35,6 +35,7 @@ const navBarCss = {
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: spacingXY(20, 10),
+    paddingTop: `calc(${10}px + env(safe-area-inset-top))`,
   }),
   title: css({
     fontSize: '1.2em',
@@ -86,34 +87,28 @@ function NavBar({ menus }: Props): ReactElement {
     setMenuOpen(false)
   }
 
-  const menuList = (
-    <MenuList
-      menus={menus}
-      open={isDesktop || isMenuOen}
-      onItemClick={onMenuItemClick}
-    />
-  )
-
   return (
     <header
       css={[navBarCss.self, isScrolled ? navBarCss.light : navBarCss.dark]}
     >
-      <Container>
-        <div ref={ref} css={navBarCss.inner}>
-          <h1 css={navBarCss.title}>PEDSFOLIO</h1>
-          {isDesktop === true && menuList}
-          {isDesktop === false && (
-            <IconButton
-              css={navBarCss.menuButton}
-              onClick={() => setMenuOpen((prev) => !prev)}
-              color={isScrolled ? 'dark87' : 'white'}
-              aria-label="메뉴"
-              Icon={SvgMenu}
-            />
-          )}
-        </div>
-        {isDesktop === false && menuList}
-      </Container>
+      <MenuList menus={menus} onMenuClick={onMenuItemClick}>
+        <Container>
+          <div ref={ref} css={navBarCss.inner}>
+            <h1 css={navBarCss.title}>PEDSFOLIO</h1>
+            {isDesktop === true && <MenuList.Bar />}
+            {isDesktop === false && (
+              <IconButton
+                css={navBarCss.menuButton}
+                onClick={() => setMenuOpen((prev) => !prev)}
+                color={isScrolled ? 'dark87' : 'white'}
+                aria-label="메뉴"
+                Icon={SvgMenu}
+              />
+            )}
+          </div>
+          {isDesktop === false && <MenuList.Collapsible open={isMenuOen} />}
+        </Container>
+      </MenuList>
     </header>
   )
 }

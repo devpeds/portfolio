@@ -27,7 +27,7 @@ const skillsCss = {
     flexShrink: 0,
     minWidth: 160,
     fontSize: '1.2em',
-    fontWeight: 900,
+    fontWeight: 700,
   }),
 }
 
