@@ -1,13 +1,12 @@
 import { css } from '@emotion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 
-import { SvgMenu } from '@/assets/svg'
 import Container from '@/components/Container'
-import IconButton from '@/components/IconButton'
 import { colors } from '@/styles'
 import { Menu } from '@/types'
 import { mediaQueryConditionWidth, spacingXY } from '@/utils/styleUtil'
 
+import MenuButton from './MenuButton'
 import MenuList from './MenuList'
 
 const navBarCss = {
@@ -43,7 +42,9 @@ const navBarCss = {
     lineHeight: '40px',
   }),
   menuButton: css({
-    marginRight: -8,
+    width: 40,
+    height: 40,
+    padding: 4,
   }),
 }
 
@@ -104,12 +105,10 @@ function NavBar({ menus }: Props): ReactElement {
             </button>
             {isDesktop === true && <MenuList.Bar />}
             {isDesktop === false && (
-              <IconButton
+              <MenuButton
                 css={navBarCss.menuButton}
+                open={isMenuOen}
                 onClick={() => setMenuOpen((prev) => !prev)}
-                color={isScrolled ? 'dark87' : 'white'}
-                aria-label="메뉴"
-                Icon={SvgMenu}
               />
             )}
           </div>
