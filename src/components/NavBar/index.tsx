@@ -37,8 +37,9 @@ const navBarCss = {
     padding: spacingXY(20, 10),
     paddingTop: `calc(${10}px + env(safe-area-inset-top))`,
   }),
-  title: css({
+  logo: css({
     fontSize: '1.2em',
+    fontWeight: 700,
     lineHeight: '40px',
   }),
   menuButton: css({
@@ -75,6 +76,10 @@ function NavBar({ menus }: Props): ReactElement {
     return () => matchMedia.removeEventListener('change', onMatchMedia)
   }, [])
 
+  const onLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const onMenuItemClick = (menu: Menu) => {
     const section = document.getElementById(menu.id)
     if (section) {
@@ -94,7 +99,9 @@ function NavBar({ menus }: Props): ReactElement {
       <MenuList menus={menus} onMenuClick={onMenuItemClick}>
         <Container>
           <div ref={ref} css={navBarCss.inner}>
-            <h1 css={navBarCss.title}>PEDSFOLIO</h1>
+            <button css={navBarCss.logo} onClick={onLogoClick}>
+              PEDSFOLIO
+            </button>
             {isDesktop === true && <MenuList.Bar />}
             {isDesktop === false && (
               <IconButton
