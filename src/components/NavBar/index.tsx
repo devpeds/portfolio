@@ -56,7 +56,8 @@ function NavBar({ menus }: Props): ReactElement {
   const [isScrolled, setScrolled] = useState<boolean>(false)
   const [isDesktop, setDesktop] = useState<boolean>()
   const [isMenuOen, setMenuOpen] = useState<boolean>(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -77,6 +78,19 @@ function NavBar({ menus }: Props): ReactElement {
     return () => matchMedia.removeEventListener('change', onMatchMedia)
   }, [])
 
+  useEffect(() => {
+    const onClickOutside = (e: MouseEvent): void => {
+      if (ref.current?.contains(e.target as HTMLElement | null)) {
+        return
+      }
+
+      setMenuOpen(false)
+    }
+
+    window.addEventListener('click', onClickOutside)
+    return () => window.removeEventListener('click', onClickOutside)
+  }, [])
+
   const onLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -84,7 +98,7 @@ function NavBar({ menus }: Props): ReactElement {
   const onMenuItemClick = (menu: Menu) => {
     const section = document.getElementById(menu.id)
     if (section) {
-      const offset = ref.current?.getBoundingClientRect().height ?? 0
+      const offset = innerRef.current?.getBoundingClientRect().height ?? 0
       window.scrollBy({
         top: section.getBoundingClientRect().top - offset,
         behavior: 'smooth',
@@ -95,11 +109,12 @@ function NavBar({ menus }: Props): ReactElement {
 
   return (
     <header
+      ref={ref}
       css={[navBarCss.self, isScrolled ? navBarCss.light : navBarCss.dark]}
     >
       <MenuList menus={menus} onMenuClick={onMenuItemClick}>
         <Container>
-          <div ref={ref} css={navBarCss.inner}>
+          <div ref={innerRef} css={navBarCss.inner}>
             <button css={navBarCss.logo} onClick={onLogoClick}>
               PEDSFOLIO
             </button>
