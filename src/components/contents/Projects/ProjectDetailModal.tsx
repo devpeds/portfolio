@@ -6,7 +6,7 @@ import { colors } from '@/styles'
 import { Project } from '@/types'
 import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
 
-const MarkdownContent = lazy(() => import('@/components/MarkdownContent'))
+const HtmlContent = lazy(() => import('@/components/HtmlContent'))
 
 const modalCss = {
   self: css({
@@ -57,11 +57,9 @@ function ProjectDetailModal(props: Props): ReactElement {
   return (
     <Modal css={modalCss.self} open={open} onClose={onClose}>
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
-      <div css={modalCss.contents}>
-        <Suspense>
-          <MarkdownContent content={project.detail} />
-        </Suspense>
-      </div>
+      <Suspense>
+        <HtmlContent css={modalCss.contents} content={project.detail} />
+      </Suspense>
     </Modal>
   )
 }
