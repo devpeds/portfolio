@@ -53,7 +53,7 @@ const projectsCss = {
   period: css({
     fontSize: '0.8em',
     fontWeight: 700,
-    color: colors.dark60,
+    color: colors.black60,
     marginBottom: 4,
   }),
   title: css({
