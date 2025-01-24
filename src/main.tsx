@@ -7,7 +7,6 @@ import nanumSquareNeoRegular from './assets/fonts/NanumSquareNeo-bRg-subset.woff
 import nanumSquareNeoRegular2 from './assets/fonts/NanumSquareNeo-bRg-subset.woff2'
 import nanumSquareNeoBold from './assets/fonts/NanumSquareNeo-cBd-subset.woff'
 import nanumSquareNeoBold2 from './assets/fonts/NanumSquareNeo-cBd-subset.woff2'
-import Seo from './components/Seo.tsx'
 import colors from './styles/colors.ts'
 
 // NOTE 1: multiple @font-face is not supported on object styling
@@ -76,7 +75,6 @@ const globalStyles = css`
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Seo />
     <Global styles={globalStyles} />
     <App />
   </StrictMode>,
