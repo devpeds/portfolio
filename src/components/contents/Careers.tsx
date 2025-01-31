@@ -42,7 +42,7 @@ const careersCss = {
   period: css({
     fontSize: '0.9em',
     fontWeight: 700,
-    color: colors.dark33,
+    color: colors.black60,
     marginBottom: 4,
   }),
   content: css({

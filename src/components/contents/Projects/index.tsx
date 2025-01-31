@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ReactElement, useState } from 'react'
+import { ReactElement, Suspense, lazy, useState } from 'react'
 
 import SkillChips from '@/components/SkillChips'
 import { breakpoints, colors } from '@/styles'
@@ -7,7 +7,7 @@ import { Project } from '@/types'
 import { formatInterval } from '@/utils/dateUtil'
 import { hoverStyle } from '@/utils/styleUtil'
 
-import ProjectDetailModal from './ProjectDetailModal'
+const ProjectDetailModal = lazy(() => import('./ProjectDetailModal'))
 
 const gap = 32
 const numberOfRows = 2
@@ -53,7 +53,7 @@ const projectsCss = {
   period: css({
     fontSize: '0.8em',
     fontWeight: 700,
-    color: colors.dark60,
+    color: colors.black60,
     marginBottom: 4,
   }),
   title: css({
@@ -97,11 +97,13 @@ function ProjectCard(props: CardProps): ReactElement {
           <SkillChips css={projectsCss.techStack} skills={project.techStack} />
         </div>
       </button>
-      <ProjectDetailModal
-        project={project}
-        open={isSelected}
-        onClose={() => setSelected(false)}
-      />
+      <Suspense>
+        <ProjectDetailModal
+          project={project}
+          open={isSelected}
+          onClose={() => setSelected(false)}
+        />
+      </Suspense>
     </>
   )
 }

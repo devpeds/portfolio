@@ -22,7 +22,7 @@ const modalCss = {
     margin: 'auto',
     maxWidth: 'calc(100% - 40px)',
     width: '100%',
-    maxHeight: 'max(calc(100vh - 160px), 80vh)',
+    maxHeight: 'max(calc(100vh - 80px), 90vh)',
     overflow: 'scroll',
     scrollbarWidth: 'none',
     backgroundColor: colors.white,
@@ -30,6 +30,9 @@ const modalCss = {
     color: colors.dark87,
     [mediaQueryWidth('sm')]: {
       maxWidth: `min(100% - 80px, ${breakpoints.lg - 160}px)`,
+    },
+    '@supports (max-height: 100svh)': {
+      maxHeight: 'max(calc(100svh - 80px), 90svh)',
     },
   }),
   header: css({
@@ -39,6 +42,7 @@ const modalCss = {
     justifyContent: 'space-between',
     position: 'sticky',
     top: 0,
+    zIndex: 1,
     fontSize: '1.2em',
     fontWeight: 700,
     padding: spacingXY(24, 16),

@@ -2,16 +2,22 @@ import { CSSInterpolation } from '@emotion/serialize'
 
 import { BreakPoint, breakpoints } from '@/styles'
 
-export function mediaQueryConditionWidth(breakPoint: BreakPoint): string {
-  return `(min-width: ${breakpoints[breakPoint]}px)`
-}
+import { letIfTruthy } from './sweet'
 
 export function mediaQueryWidth(breakPoint: BreakPoint): string {
-  return `@media ${mediaQueryConditionWidth(breakPoint)}`
+  return `@media (min-width: ${breakpoints[breakPoint]}px)`
 }
 
 export function spacingXY(x: number, y: number): string {
   return `${y}px ${x}px`
+}
+
+export function spacingX(x: number): string {
+  return spacingXY(x, 0)
+}
+
+export function spacingY(y: number): string {
+  return spacingXY(0, y)
 }
 
 export function spacingLRTB(
@@ -31,7 +37,7 @@ export function hoverStyle(
     '@media (hover: hover) and (pointer: fine)': {
       '&:hover': css,
     },
-    ...(mobileStyle === 'active' ? { '&:active': css } : undefined),
+    ...letIfTruthy(mobileStyle === 'active', () => ({ '&:active': css })),
   }
 }
 

@@ -1,13 +1,13 @@
 import { css } from '@emotion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 
-import { SvgMenu } from '@/assets/svg'
 import Container from '@/components/Container'
-import IconButton from '@/components/IconButton'
-import { colors } from '@/styles'
+import useMatchMedia from '@/hooks/useMatchMedia'
+import { breakpoints, colors } from '@/styles'
 import { Menu } from '@/types'
-import { mediaQueryConditionWidth, spacingXY } from '@/utils/styleUtil'
+import { spacingXY } from '@/utils/styleUtil'
 
+import MenuButton from './MenuButton'
 import MenuList from './MenuList'
 
 const navBarCss = {
@@ -37,12 +37,15 @@ const navBarCss = {
     padding: spacingXY(20, 10),
     paddingTop: `calc(${10}px + env(safe-area-inset-top))`,
   }),
-  title: css({
+  logo: css({
     fontSize: '1.2em',
+    fontWeight: 700,
     lineHeight: '40px',
   }),
   menuButton: css({
-    marginRight: -8,
+    width: 40,
+    height: 40,
+    padding: 4,
   }),
 }
 
@@ -52,9 +55,10 @@ interface Props {
 
 function NavBar({ menus }: Props): ReactElement {
   const [isScrolled, setScrolled] = useState<boolean>(false)
-  const [isDesktop, setDesktop] = useState<boolean>()
   const [isMenuOen, setMenuOpen] = useState<boolean>(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const isDesktop = useMatchMedia(`(min-width: ${breakpoints.md}px)`)
+  const ref = useRef<HTMLElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -67,18 +71,26 @@ function NavBar({ menus }: Props): ReactElement {
   }, [])
 
   useEffect(() => {
-    const matchMedia = window.matchMedia(mediaQueryConditionWidth('md'))
-    const onMatchMedia = (e: MediaQueryListEvent) => setDesktop(e.matches)
+    const onClickOutside = (e: MouseEvent): void => {
+      if (ref.current?.contains(e.target as HTMLElement | null)) {
+        return
+      }
 
-    setDesktop(matchMedia.matches)
-    matchMedia.addEventListener('change', onMatchMedia)
-    return () => matchMedia.removeEventListener('change', onMatchMedia)
+      setMenuOpen(false)
+    }
+
+    window.addEventListener('click', onClickOutside)
+    return () => window.removeEventListener('click', onClickOutside)
   }, [])
+
+  const onLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const onMenuItemClick = (menu: Menu) => {
     const section = document.getElementById(menu.id)
     if (section) {
-      const offset = ref.current?.getBoundingClientRect().height ?? 0
+      const offset = innerRef.current?.getBoundingClientRect().height ?? 0
       window.scrollBy({
         top: section.getBoundingClientRect().top - offset,
         behavior: 'smooth',
@@ -89,20 +101,21 @@ function NavBar({ menus }: Props): ReactElement {
 
   return (
     <header
+      ref={ref}
       css={[navBarCss.self, isScrolled ? navBarCss.light : navBarCss.dark]}
     >
       <MenuList menus={menus} onMenuClick={onMenuItemClick}>
         <Container>
-          <div ref={ref} css={navBarCss.inner}>
-            <h1 css={navBarCss.title}>PEDSFOLIO</h1>
+          <div ref={innerRef} css={navBarCss.inner}>
+            <button css={navBarCss.logo} onClick={onLogoClick}>
+              PEDSFOLIO
+            </button>
             {isDesktop === true && <MenuList.Bar />}
             {isDesktop === false && (
-              <IconButton
+              <MenuButton
                 css={navBarCss.menuButton}
+                open={isMenuOen}
                 onClick={() => setMenuOpen((prev) => !prev)}
-                color={isScrolled ? 'dark87' : 'white'}
-                aria-label="메뉴"
-                Icon={SvgMenu}
               />
             )}
           </div>

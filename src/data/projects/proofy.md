@@ -1,3 +1,16 @@
+---
+name: 프루피(Proofy)
+description: 소울바운드토큰(SBT) 기반 신원 인증 앱
+startAt: 2023-07
+endAt: 2024-06
+techStack:
+  - TypeScript
+  - React Native
+  - TanStack Query
+  - Jotai
+  - Tailwind
+---
+
 # 프루피(Proofy)
 
 소울바운드토큰(SBT) 기반 신원 인증 서비스 '프루피'의 모바일 어플리케이션을 개발한 프로젝트입니다. KYC와 SBT 민팅을 통한 신원인증 기능, 지갑 관리, 연봉 비교 기능 등을 포함하고 있습니다.

@@ -1,3 +1,14 @@
+---
+name: 빌리피(Beliefy)
+description: 인증 기반 데이팅 앱
+startAt: 2023-10
+endAt: 2024-11
+techStack:
+  - Dart
+  - Flutter
+  - BloC
+---
+
 # 빌리피(Beliefy)
 
 인증 기반 데이팅 서비스, 빌리피의 모바일 어플리케이션을 개발한 프로젝트입니다. 프로필 심사, 이성 추천 및 매칭, 채팅, 인증 등의 기능을 포함하고 있습니다.

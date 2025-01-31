@@ -1,0 +1,5 @@
+export { default as altong } from './altong.png'
+export { default as beliefy } from './beliefy.png'
+export { default as playwingsRenewal } from './playwings-renewal.png'
+export { default as playwingsWeb } from './playwings-web.png'
+export { default as proofy } from './proofy.png'

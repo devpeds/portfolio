@@ -1,23 +1,27 @@
 import { css } from '@emotion/react'
-import { ReactElement, Suspense, lazy } from 'react'
+import { ReactElement } from 'react'
 
+import HtmlContent from '@/components/HtmlContent'
 import Modal from '@/components/Modal'
 import { colors } from '@/styles'
 import { Project } from '@/types'
-import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
+import { spacingLRTB, spacingY } from '@/utils/styleUtil'
 
-const MarkdownContent = lazy(() => import('@/components/MarkdownContent'))
+import Showcase from './Showcase'
 
 const modalCss = {
   self: css({
     height: '100%',
   }),
+  showcase: css({
+    marginBottom: 32,
+  }),
   contents: css({
     padding: spacingLRTB(24, 24, 0, 24),
-    '& h1': {
+    h1: {
       marginBottom: 24,
     },
-    '& h2, h3, p, pre': {
+    'h2, h3, p, pre': {
       marginBottom: 16,
     },
     '& ul, ol': {
@@ -25,22 +29,27 @@ const modalCss = {
       paddingLeft: 20,
       paddingBottom: 16,
     },
-    '& li': {
+    li: {
       marginBottom: 8,
     },
-    '& summary': {
-      padding: spacingXY(0, 12),
+    summary: {
+      padding: spacingY(12),
       fontSize: '1.2em',
       fontWeight: 700,
     },
-    '& p code': {
-      backgroundColor: colors.lightGray,
-      color: 'red',
-      padding: 4,
-      borderRadius: 4,
+    p: {
+      code: {
+        backgroundColor: colors.lightGray,
+        color: 'red',
+        padding: 4,
+        borderRadius: 4,
+      },
     },
-    '& pre code': {
-      borderRadius: 8,
+    pre: {
+      overflow: 'scroll',
+      code: {
+        borderRadius: 8,
+      },
     },
   }),
 }
@@ -57,11 +66,8 @@ function ProjectDetailModal(props: Props): ReactElement {
   return (
     <Modal css={modalCss.self} open={open} onClose={onClose}>
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
-      <div css={modalCss.contents}>
-        <Suspense>
-          <MarkdownContent content={project.detail} />
-        </Suspense>
-      </div>
+      <Showcase css={modalCss.showcase} assets={project.showcase} />
+      <HtmlContent css={modalCss.contents} content={project.detail} />
     </Modal>
   )
 }

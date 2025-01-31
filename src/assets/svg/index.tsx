@@ -1,5 +1,5 @@
+export { default as SvgChevronLeft } from './chevron-left.svg?react'
 export { default as SvgClose } from './close.svg?react'
-export { default as SvgMenu } from './menu.svg?react'
 export { default as SvgEmail } from './email.svg?react'
 export { default as SvgGithub } from './github.svg?react'
 export { default as SvgLinkedin } from './linkedin.svg?react'

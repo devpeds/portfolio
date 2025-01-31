@@ -30,11 +30,11 @@ const skillCss: { [key: string]: ReturnType<typeof css> } = {
   }),
   [Skill.dart]: css({
     backgroundColor: '#fa7343',
-    color: colors.white,
+    color: colors.dark,
   }),
   [Skill.react]: css({
     backgroundColor: '#61dafb',
-    color: colors.black60,
+    color: colors.dark87,
   }),
   [Skill.next]: css({
     backgroundColor: colors.black,
@@ -46,7 +46,7 @@ const skillCss: { [key: string]: ReturnType<typeof css> } = {
   }),
   [Skill.rn]: css({
     backgroundColor: '#61dafb',
-    color: colors.black60,
+    color: colors.dark87,
   }),
   [Skill.flutter]: css({
     backgroundColor: '#02569b',
@@ -54,23 +54,23 @@ const skillCss: { [key: string]: ReturnType<typeof css> } = {
   }),
   [Skill.firebase]: css({
     backgroundColor: '#ffca28',
-    color: colors.black60,
+    color: colors.dark,
   }),
   [Skill.aws]: css({
     backgroundColor: '#ff9900',
-    color: colors.black60,
+    color: colors.dark,
   }),
   [Skill.fastlane]: css({
     backgroundColor: '#00f2ea',
-    color: colors.black60,
+    color: colors.dark,
   }),
   [Skill.gradle]: css({
     backgroundColor: '#02303a',
     color: colors.white,
   }),
   [Skill.gerrit]: css({
-    backgroundColor: '#4a90e2',
-    color: colors.white,
+    backgroundColor: '#aaffaa',
+    color: colors.dark87,
   }),
   [Skill.tQuery]: css({
     backgroundColor: '#ff4154',

@@ -1,3 +1,15 @@
+---
+name: 알통(Altong)
+description: 알뜰폰 요금제 비교 웹사이트
+startAt: 2023-09
+endAt: 2023-10
+techStack:
+  - TypeScript
+  - Next.js
+  - Material UI
+  - TailwindCSS
+---
+
 # 알통(Altong)
 
 알뜰폰 요금제 비교 서비스 '알통' 웹사이트를 개발한 프로젝트입니다. 홈, 요금제 리스트, 요금제 상세, 이용팁으로 구성되어 있습니다.

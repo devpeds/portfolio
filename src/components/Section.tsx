@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 
 import { HTMLComponentType } from '@/types'
-import { spacingXY } from '@/utils/styleUtil'
+import { spacingY } from '@/utils/styleUtil'
 
 type SectionComponent = HTMLComponentType<HTMLElement> & {
   Title: HTMLComponentType<HTMLHeadingElement>
@@ -16,7 +16,7 @@ const sectionCss = {
   title: css({
     fontSize: '2em',
     fontWeight: 700,
-    padding: spacingXY(0, 16),
+    padding: spacingY(16),
     marginBottom: 16,
   }),
 }
