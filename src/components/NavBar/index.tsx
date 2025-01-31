@@ -2,9 +2,10 @@ import { css } from '@emotion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 
 import Container from '@/components/Container'
-import { colors } from '@/styles'
+import useMatchMedia from '@/hooks/useMatchMedia'
+import { breakpoints, colors } from '@/styles'
 import { Menu } from '@/types'
-import { mediaQueryConditionWidth, spacingXY } from '@/utils/styleUtil'
+import { spacingXY } from '@/utils/styleUtil'
 
 import MenuButton from './MenuButton'
 import MenuList from './MenuList'
@@ -54,8 +55,8 @@ interface Props {
 
 function NavBar({ menus }: Props): ReactElement {
   const [isScrolled, setScrolled] = useState<boolean>(false)
-  const [isDesktop, setDesktop] = useState<boolean>()
   const [isMenuOen, setMenuOpen] = useState<boolean>(false)
+  const isDesktop = useMatchMedia(`(min-width: ${breakpoints.md}px)`)
   const ref = useRef<HTMLElement>(null)
   const innerRef = useRef<HTMLDivElement>(null)
 
@@ -67,15 +68,6 @@ function NavBar({ menus }: Props): ReactElement {
     window.addEventListener('scroll', onScroll)
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    const matchMedia = window.matchMedia(mediaQueryConditionWidth('md'))
-    const onMatchMedia = (e: MediaQueryListEvent) => setDesktop(e.matches)
-
-    setDesktop(matchMedia.matches)
-    matchMedia.addEventListener('change', onMatchMedia)
-    return () => matchMedia.removeEventListener('change', onMatchMedia)
   }, [])
 
   useEffect(() => {

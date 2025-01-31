@@ -4,12 +4,8 @@ import { BreakPoint, breakpoints } from '@/styles'
 
 import { letIfTruthy } from './sweet'
 
-export function mediaQueryConditionWidth(breakPoint: BreakPoint): string {
-  return `(min-width: ${breakpoints[breakPoint]}px)`
-}
-
 export function mediaQueryWidth(breakPoint: BreakPoint): string {
-  return `@media ${mediaQueryConditionWidth(breakPoint)}`
+  return `@media (min-width: ${breakpoints[breakPoint]}px)`
 }
 
 export function spacingXY(x: number, y: number): string {
