@@ -1,4 +1,5 @@
-import * as thumbnail from '@/assets/images/projects'
+import showcase from '@/assets/images/projects/showcase'
+import * as thumbnail from '@/assets/images/projects/thumbnail'
 import { Project } from '@/types'
 
 import * as altong from './altong.md'
@@ -38,7 +39,7 @@ const projects: Project[] = (
     startAt: parseDate(startAt),
     endAt: endAt ? parseDate(endAt) : undefined,
     detail,
-    showcase: [],
+    showcase: (showcase as Record<ProjectKey, string[]>)[key] || [],
   }
 })
 
