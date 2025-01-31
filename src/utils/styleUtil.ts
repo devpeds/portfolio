@@ -14,6 +14,14 @@ export function spacingXY(x: number, y: number): string {
   return `${y}px ${x}px`
 }
 
+export function spacingX(x: number): string {
+  return spacingXY(x, 0)
+}
+
+export function spacingY(y: number): string {
+  return spacingXY(0, y)
+}
+
 export function spacingLRTB(
   left: number,
   right: number,
