@@ -5,7 +5,7 @@ import { SvgChevronLeft } from '@/assets/svg'
 import IconButton from '@/components/IconButton'
 import useHover from '@/hooks/useHover'
 import { colors } from '@/styles'
-import { hoverStyle, mediaQueryWidth, spacingX } from '@/utils/styleUtil'
+import { hoverStyle, mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
 import { letIfTruthy } from '@/utils/sweet'
 
 type ArrowPosition = 'left' | 'right'
@@ -20,7 +20,7 @@ const showcaseCss = {
     display: 'flex',
     flexDirection: 'row',
     gap,
-    padding: spacingX(24),
+    padding: spacingXY(24, 12),
     overflowX: 'scroll',
     scrollbarWidth: 'none',
     scrollSnapType: 'x mandatory',
@@ -30,6 +30,7 @@ const showcaseCss = {
     flexShrink: 0,
     width: '100%',
     aspectRatio: 16 / 9,
+    boxShadow: `0 0 8px ${colors.dark33}`,
     scrollSnapAlign: 'start',
     [mediaQueryWidth('sm')]: {
       width: `calc(100% / 2 - ${gap}px)`,
@@ -42,7 +43,7 @@ const showcaseCss = {
         opacity: visible ? 1 : 0,
         transition: 'visibility .1s, opacity .3s',
         backgroundColor: colors.white87,
-        boxShadow: `0 0px 8px ${colors.dark12}`,
+        boxShadow: `0 0 8px ${colors.dark12}`,
         width: 60,
         height: 60,
         padding: 16,
@@ -88,8 +89,8 @@ function Showcase(props: Props): ReactElement {
   }
 
   return (
-    <div ref={ref} css={showcaseCss.self}>
-      <div ref={scrollRef} className={className} css={showcaseCss.list}>
+    <div ref={ref} className={className} css={showcaseCss.self}>
+      <div ref={scrollRef} css={showcaseCss.list}>
         {assets.map((src, index) => (
           <img
             key={index}

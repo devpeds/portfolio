@@ -14,7 +14,7 @@ const modalCss = {
     height: '100%',
   }),
   showcase: css({
-    marginBottom: 32,
+    marginBottom: 20,
   }),
   contents: css({
     padding: spacingLRTB(24, 24, 0, 24),
