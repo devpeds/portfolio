@@ -18,10 +18,10 @@ const modalCss = {
   }),
   contents: css({
     padding: spacingLRTB(24, 24, 0, 24),
-    '& h1': {
+    h1: {
       marginBottom: 24,
     },
-    '& h2, h3, p, pre': {
+    'h2, h3, p, pre': {
       marginBottom: 16,
     },
     '& ul, ol': {
@@ -29,22 +29,27 @@ const modalCss = {
       paddingLeft: 20,
       paddingBottom: 16,
     },
-    '& li': {
+    li: {
       marginBottom: 8,
     },
-    '& summary': {
+    summary: {
       padding: spacingXY(0, 12),
       fontSize: '1.2em',
       fontWeight: 700,
     },
-    '& p code': {
-      backgroundColor: colors.lightGray,
-      color: 'red',
-      padding: 4,
-      borderRadius: 4,
+    p: {
+      code: {
+        backgroundColor: colors.lightGray,
+        color: 'red',
+        padding: 4,
+        borderRadius: 4,
+      },
     },
-    '& pre code': {
-      borderRadius: 8,
+    pre: {
+      overflow: 'scroll',
+      code: {
+        borderRadius: 8,
+      },
     },
   }),
 }
