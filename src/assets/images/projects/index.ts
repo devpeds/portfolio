@@ -1,13 +1,5 @@
-import altong from './altong.png'
-import beliefy from './beliefy.png'
-import playwingsRenewal from './playwings-renewal.png'
-import playwingsWeb from './playwings-web.png'
-import proofy from './proofy.png'
-
-export const thumbnail = {
-  beliefy,
-  altong,
-  proofy,
-  playwingsWeb,
-  playwingsRenewal,
-}
+export { default as altong } from './altong.png'
+export { default as beliefy } from './beliefy.png'
+export { default as playwingsRenewal } from './playwings-renewal.png'
+export { default as playwingsWeb } from './playwings-web.png'
+export { default as proofy } from './proofy.png'
