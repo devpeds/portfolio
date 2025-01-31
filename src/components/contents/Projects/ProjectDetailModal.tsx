@@ -7,10 +7,14 @@ import { Project } from '@/types'
 import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
 
 const HtmlContent = lazy(() => import('@/components/HtmlContent'))
+const Showcase = lazy(() => import('./Showcase'))
 
 const modalCss = {
   self: css({
     height: '100%',
+  }),
+  showcase: css({
+    marginBottom: 32,
   }),
   contents: css({
     padding: spacingLRTB(24, 24, 0, 24),
@@ -58,6 +62,7 @@ function ProjectDetailModal(props: Props): ReactElement {
     <Modal css={modalCss.self} open={open} onClose={onClose}>
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
       <Suspense>
+        <Showcase css={modalCss.showcase} assets={project.showcase} />
         <HtmlContent css={modalCss.contents} content={project.detail} />
       </Suspense>
     </Modal>

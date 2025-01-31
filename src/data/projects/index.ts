@@ -38,6 +38,7 @@ const projects: Project[] = (
     startAt: parseDate(startAt),
     endAt: endAt ? parseDate(endAt) : undefined,
     detail,
+    showcase: [],
   }
 })
 

@@ -8,6 +8,7 @@ interface Project {
   techStack: Skill[]
   description: string
   detail: string
+  showcase: string[]
 }
 
 export default Project
