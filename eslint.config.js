@@ -10,7 +10,7 @@ import importPlugin from 'eslint-plugin-import'
 import unusedImports from 'eslint-plugin-unused-imports'
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', '.yarn'] },
   {
     extends: [
       js.configs.recommended,
