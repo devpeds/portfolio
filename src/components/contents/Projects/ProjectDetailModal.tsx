@@ -1,13 +1,13 @@
 import { css } from '@emotion/react'
-import { ReactElement, Suspense, lazy } from 'react'
+import { ReactElement } from 'react'
 
+import HtmlContent from '@/components/HtmlContent'
 import Modal from '@/components/Modal'
 import { colors } from '@/styles'
 import { Project } from '@/types'
 import { spacingLRTB, spacingY } from '@/utils/styleUtil'
 
-const HtmlContent = lazy(() => import('@/components/HtmlContent'))
-const Showcase = lazy(() => import('./Showcase'))
+import Showcase from './Showcase'
 
 const modalCss = {
   self: css({
@@ -66,10 +66,8 @@ function ProjectDetailModal(props: Props): ReactElement {
   return (
     <Modal css={modalCss.self} open={open} onClose={onClose}>
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
-      <Suspense>
-        <Showcase css={modalCss.showcase} assets={project.showcase} />
-        <HtmlContent css={modalCss.contents} content={project.detail} />
-      </Suspense>
+      <Showcase css={modalCss.showcase} assets={project.showcase} />
+      <HtmlContent css={modalCss.contents} content={project.detail} />
     </Modal>
   )
 }
