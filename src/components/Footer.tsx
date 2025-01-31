@@ -4,7 +4,7 @@ import { ComponentProps, ComponentType, ReactElement } from 'react'
 import { SvgEmail, SvgGithub, SvgLinkedin } from '@/assets/svg'
 import { colors } from '@/styles'
 import { Contacts } from '@/types'
-import { hoverStyle, spacingLRTB, spacingXY } from '@/utils/styleUtil'
+import { hoverStyle, spacingLRTB, spacingX } from '@/utils/styleUtil'
 
 import IconButton from './IconButton'
 
@@ -36,7 +36,7 @@ const footerCss = {
     justifyContent: 'center',
     gap: 24,
     marginTop: 32,
-    padding: spacingXY(16, 0),
+    padding: spacingX(16),
     width: '100%',
   }),
   contact: css(

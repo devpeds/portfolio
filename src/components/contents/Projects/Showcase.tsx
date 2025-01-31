@@ -48,7 +48,6 @@ const showcaseCss = {
         padding: 16,
         position: 'absolute',
         top: '50%',
-        right: position === 'right' ? 0 : undefined,
         transform: 'translateY(-50%)',
         left: letIfTruthy(position === 'left', () => 4),
         ...letIfTruthy(position === 'right', () => ({

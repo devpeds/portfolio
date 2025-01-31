@@ -2,6 +2,8 @@ import { CSSInterpolation } from '@emotion/serialize'
 
 import { BreakPoint, breakpoints } from '@/styles'
 
+import { letIfTruthy } from './sweet'
+
 export function mediaQueryConditionWidth(breakPoint: BreakPoint): string {
   return `(min-width: ${breakpoints[breakPoint]}px)`
 }
@@ -39,7 +41,7 @@ export function hoverStyle(
     '@media (hover: hover) and (pointer: fine)': {
       '&:hover': css,
     },
-    ...(mobileStyle === 'active' ? { '&:active': css } : undefined),
+    ...letIfTruthy(mobileStyle === 'active', () => ({ '&:active': css })),
   }
 }
 

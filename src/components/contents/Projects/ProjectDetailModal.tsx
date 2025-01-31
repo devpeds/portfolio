@@ -4,7 +4,7 @@ import { ReactElement, Suspense, lazy } from 'react'
 import Modal from '@/components/Modal'
 import { colors } from '@/styles'
 import { Project } from '@/types'
-import { spacingLRTB, spacingXY } from '@/utils/styleUtil'
+import { spacingLRTB, spacingY } from '@/utils/styleUtil'
 
 const HtmlContent = lazy(() => import('@/components/HtmlContent'))
 const Showcase = lazy(() => import('./Showcase'))
@@ -33,7 +33,7 @@ const modalCss = {
       marginBottom: 8,
     },
     summary: {
-      padding: spacingXY(0, 12),
+      padding: spacingY(12),
       fontSize: '1.2em',
       fontWeight: 700,
     },
