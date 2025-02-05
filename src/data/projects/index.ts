@@ -4,6 +4,7 @@ import { Project } from '@/types'
 
 import * as altong from './altong.md'
 import * as beliefy from './beliefy.md'
+import * as pedsfolio from './pedsfolio.md'
 import * as playwingsRenewal from './playwings-renewal.md'
 import * as playwingsWeb from './playwings-web.md'
 import * as proofy from './proofy.md'
@@ -20,10 +21,12 @@ const projectMap = {
   proofy,
   playwingsWeb,
   playwingsRenewal,
+  pedsfolio,
 }
 
 const projects: Project[] = (
   [
+    'pedsfolio',
     'beliefy',
     'altong',
     'proofy',

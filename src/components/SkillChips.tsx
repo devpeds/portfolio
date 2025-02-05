@@ -81,7 +81,7 @@ const skillCss: { [key: string]: ReturnType<typeof css> } = {
     color: colors.white,
   }),
   [Skill.emotion]: css({
-    backgroundColor: '#d36ac2',
+    backgroundColor: '#c43bad',
     color: colors.white,
   }),
   [Skill.graphql]: css({
