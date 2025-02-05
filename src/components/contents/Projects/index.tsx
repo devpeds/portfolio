@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { ReactElement, Suspense, lazy, useState } from 'react'
 
+import Image from '@/components/Image'
 import SkillChips from '@/components/SkillChips'
 import { breakpoints, colors } from '@/styles'
 import { Project } from '@/types'
@@ -86,7 +87,11 @@ function ProjectCard(props: CardProps): ReactElement {
   return (
     <>
       <button css={projectsCss.item} onClick={() => setSelected(true)}>
-        <img css={projectsCss.image} src={project.image} alt={project.name} />
+        <Image
+          css={projectsCss.image}
+          image={project.image}
+          alt={project.name}
+        />
         <div css={projectsCss.content}>
           <div css={projectsCss.period}>
             {formatInterval(project.startAt, project.endAt)}

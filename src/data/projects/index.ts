@@ -42,7 +42,7 @@ const projects: Project[] = (
     startAt: parseDate(startAt),
     endAt: endAt ? parseDate(endAt) : undefined,
     detail,
-    showcase: (showcase as Record<ProjectKey, string[]>)[key] || [],
+    showcase: (showcase as Record<ProjectKey, ImagePreset[]>)[key] || [],
   }
 })
 

@@ -3,6 +3,7 @@ import { ReactElement, useRef } from 'react'
 
 import { SvgChevronLeft } from '@/assets/svg'
 import IconButton from '@/components/IconButton'
+import Image from '@/components/Image'
 import useHover from '@/hooks/useHover'
 import { colors } from '@/styles'
 import { hoverStyle, mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
@@ -67,7 +68,7 @@ const showcaseCss = {
 
 interface Props {
   className?: string
-  assets: string[]
+  assets: ImagePreset[]
 }
 
 function Showcase(props: Props): ReactElement {
@@ -91,11 +92,11 @@ function Showcase(props: Props): ReactElement {
   return (
     <div ref={ref} className={className} css={showcaseCss.self}>
       <div ref={scrollRef} css={showcaseCss.list}>
-        {assets.map((src, index) => (
-          <img
+        {assets.map((image, index) => (
+          <Image
             key={index}
             css={showcaseCss.item}
-            src={src}
+            image={image}
             alt={`project image ${index}`}
           />
         ))}
