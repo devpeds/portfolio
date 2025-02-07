@@ -17,7 +17,6 @@ const buttonCss = {
     return css(
       {
         color: color ? colors[color] : 'inherit',
-        transition: 'all .2s',
       },
       hoverStyle({
         backgroundColor: `rgba(${r}, ${g}, ${b}, .12)`,

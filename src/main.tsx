@@ -61,6 +61,9 @@ const globalStyles = css`
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    transition:
+      color 0.2s,
+      background-color 0.3s;
   }
   button:not(:disabled),
   [type='button']:not(:disabled) {
