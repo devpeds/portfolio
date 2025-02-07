@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react-swc'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import markdownItAttrs from 'markdown-it-attrs'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
 import imagemin from 'vite-plugin-imagemin'
@@ -47,5 +48,6 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
       plugins: [['@swc/plugin-emotion', {}]],
     }),
+    visualizer({ filename: 'dist/stats.html' }),
   ],
 })
