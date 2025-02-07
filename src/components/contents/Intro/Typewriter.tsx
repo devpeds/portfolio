@@ -1,11 +1,18 @@
-import GraphemeSplitter from 'grapheme-splitter'
 import { ReactElement } from 'react'
 import TypewriterComponent from 'typewriter-effect'
 
 import { colors } from '@/styles'
 
 const stringSplitter = (text: string): string => {
-  return new GraphemeSplitter().splitGraphemes(text) as unknown as string
+  // NOTE: `str.split('')` splits the string based on UTF-16 code units,
+  // while `for` loop traverses it based on Unicode code points
+  const result: string[] = []
+  for (const c of text) {
+    result.push(c)
+  }
+
+  // NOTE: type must be cast to string since type is mis-declared
+  return result as unknown as string
 }
 
 const highlight = (text: string): string => {
