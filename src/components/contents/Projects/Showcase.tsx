@@ -30,7 +30,7 @@ const showcaseCss = {
   item: css({
     flexShrink: 0,
     width: '100%',
-    aspectRatio: 16 / 9,
+    aspectRatio: 4 / 3,
     boxShadow: `0 0 8px ${colors.dark33}`,
     scrollSnapAlign: 'start',
     [mediaQueryWidth('sm')]: {
