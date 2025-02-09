@@ -10,9 +10,14 @@ import playwingsWeb4 from './playwings-web-4.png?preset=showcase'
 import playwingsWeb5 from './playwings-web-5.png?preset=showcase'
 import playwingsWeb6 from './playwings-web-6.png?preset=showcase'
 import playwingsWeb7 from './playwings-web-7.png?preset=showcase'
+import proofy1 from './proofy-1.png?preset=showcase'
+import proofy2 from './proofy-2.png?preset=showcase'
+import proofy3 from './proofy-3.png?preset=showcase'
+import proofy4 from './proofy-4.png?preset=showcase'
 
 const showcase = {
   altong: [altong1, altong2, altong3, altong4, altong5],
+  proofy: [proofy1, proofy2, proofy3, proofy4],
   playwingsWeb: [
     playwingsWeb1,
     playwingsWeb2,
