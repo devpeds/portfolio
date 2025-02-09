@@ -54,7 +54,7 @@ pyftsubset "NanumSquareNeo-variable-font.ttf"
   --flavor=woff2
 ```
 
-`glyphs.txt`는 한국 산업 규격으로 지정된 [한국어 문자 집합 KS X 1001 표준](https://ko.wikipedia.org/wiki/KS_X_1001){target=_blank rel="noopener noreferrer"}에 영문, 숫자 등을 추가해 글자를 추출했습니다.
+`glyphs.txt`는 한국 산업 규격으로 지정된 [한국어 문자 집합 KS X 1001 표준](https://ko.wikipedia.org/wiki/KS_X_1001)에 영문, 숫자 등을 추가해 글자를 추출했습니다.
 
 서브셋 폰트를 적용한 결과, 폰트 용량을 원본의 33% 수준인 500KB까지 줄일 수 있었고, LCP를 7점을 올려 총 점수 81점까지 성능을 향상 시겼습니다.
 

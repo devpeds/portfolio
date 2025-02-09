@@ -1,7 +1,6 @@
 import react from '@vitejs/plugin-react-swc'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
-import markdownItAttrs from 'markdown-it-attrs'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
@@ -9,6 +8,26 @@ import imagemin from 'vite-plugin-imagemin'
 import { Mode, plugin as markdown } from 'vite-plugin-markdown'
 import svgr from 'vite-plugin-svgr'
 import tsConfigPaths from 'vite-tsconfig-paths'
+
+const markdownItExternalLink = (md: MarkdownIt): void => {
+  md.core.ruler.push('external_link', (state) => {
+    const tokens = state.tokens
+    const addExternalLink = (token: (typeof tokens)[0]) => {
+      if (token.tag === 'a') {
+        if (token.type !== 'link_open') {
+          return
+        }
+
+        token.attrSet('target', '_blank')
+        token.attrSet('rel', 'noopener noreferrer')
+      } else {
+        token.children?.forEach(addExternalLink)
+      }
+    }
+
+    tokens.forEach(addExternalLink)
+  })
+}
 
 const markdownIt = MarkdownIt({
   html: true,
@@ -23,7 +42,7 @@ const markdownIt = MarkdownIt({
 
     return ''
   },
-}).use(markdownItAttrs)
+}).use(markdownItExternalLink)
 
 // https://vite.dev/config/
 export default defineConfig({
