@@ -6,6 +6,7 @@ import IconButton from '@/components/IconButton'
 import Image from '@/components/Image'
 import useHover from '@/hooks/useHover'
 import { colors } from '@/styles'
+import { Project } from '@/types'
 import { hoverStyle, mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
 import { letIfTruthy } from '@/utils/sweet'
 
@@ -30,11 +31,18 @@ const showcaseCss = {
   item: css({
     flexShrink: 0,
     width: '100%',
-    aspectRatio: 4 / 3,
-    boxShadow: `0 0 8px ${colors.dark33}`,
     scrollSnapAlign: 'start',
     [mediaQueryWidth('sm')]: {
       width: `calc(100% / 2 - ${gap}px)`,
+    },
+    img: {
+      width: '100%',
+      aspectRatio: 4 / 3,
+      boxShadow: `0 0 8px ${colors.dark33}`,
+    },
+    figcaption: {
+      marginTop: 4,
+      textAlign: 'center',
     },
   }),
   arrow: (position: ArrowPosition, visible: boolean) =>
@@ -68,11 +76,11 @@ const showcaseCss = {
 
 interface Props {
   className?: string
-  assets: ImagePreset[]
+  showcase: Project['showcase']
 }
 
 function Showcase(props: Props): ReactElement {
-  const { className, assets } = props
+  const { className, showcase } = props
   const { ref, isHovered } = useHover<HTMLDivElement>()
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -85,20 +93,18 @@ function Showcase(props: Props): ReactElement {
     })
   }
 
-  if (!assets.length) {
+  if (!showcase.length) {
     return <></>
   }
 
   return (
     <div ref={ref} className={className} css={showcaseCss.self}>
       <div ref={scrollRef} css={showcaseCss.list}>
-        {assets.map((image, index) => (
-          <Image
-            key={index}
-            css={showcaseCss.item}
-            image={image}
-            alt={`project image ${index}`}
-          />
+        {showcase.map(({ image, alt }, index) => (
+          <figure key={index} css={showcaseCss.item}>
+            <Image image={image} alt={alt} />
+            <figcaption>{alt}</figcaption>
+          </figure>
         ))}
       </div>
       <IconButton

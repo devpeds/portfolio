@@ -118,7 +118,7 @@ function ProjectDetailModal(props: Props): ReactElement {
   return (
     <Modal css={modalCss.self} open={Boolean(project)} onClose={onClose}>
       <Modal.Header onClose={onClose}>Project Details</Modal.Header>
-      <Showcase css={modalCss.showcase} assets={project?.showcase ?? []} />
+      <Showcase css={modalCss.showcase} showcase={project?.showcase ?? []} />
       <HtmlContent css={modalCss.contents} content={project?.detail ?? ''} />
       <div css={modalCss.nav}>
         {prev && (

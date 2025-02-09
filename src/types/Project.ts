@@ -8,7 +8,7 @@ interface Project {
   techStack: Skill[]
   description: string
   detail: string
-  showcase: ImagePreset[]
+  showcase: { image: ImagePreset; alt: string }[]
 }
 
 export default Project
