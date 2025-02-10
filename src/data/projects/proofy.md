@@ -17,7 +17,7 @@ techStack:
 
 ## Overview
 
-- **Period**: 2023. 07. ~ 2023. 10.
+- **Period**: 2023. 07. ~ 2024. 06.
 - **Members**: 프론트엔드 개발자 2명, 백엔드 개발자 1명
 - **Role**: 프론트엔드 개발
 - **TechStack**:
@@ -26,14 +26,16 @@ techStack:
   - TailwindCSS(Nativewind)
   - Tanstack Query
   - Jotai
+  - Fastlane
+  - Github Workflow
 
 ## Contributions
 
 - 앱 주요 기능 개발
   - react-hook-form을 이용한 KYC 입력 폼 개발
+  - react-native-reanimated 도입 및 애니메이션 로직 개발
   - 소셜 로그인(Kakao, Google, Apple) 연동
   - 소득 인증 기능 개발
-  - react-native-reanimated을 활용한 애니메이션 추가
 - Fastlane, Github Workflow를 이용한 배포 관리
 
 ## Significance

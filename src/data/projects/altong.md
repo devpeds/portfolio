@@ -28,7 +28,9 @@ techStack:
 
 ## Contributions
 
-- 요금제 리스트를 제외한 앱 내 주요 기능 및 페이지 개발
+- JS 번들 사이즈 최적화를 위한 App Router, RSC 도입
+- 개발 일정 단축과 디자인 요구 사항을 동시에 충족하기 위한 오픈소스 Headless UI 도입
+- 요금제 검색을 제외한 앱 내 주요 기능 및 페이지 개발
 
 ## Significance
 
