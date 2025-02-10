@@ -3,9 +3,11 @@ import { ReactElement, useRef } from 'react'
 
 import { SvgChevronLeft } from '@/assets/svg'
 import IconButton from '@/components/IconButton'
+import Image from '@/components/Image'
 import useHover from '@/hooks/useHover'
 import { colors } from '@/styles'
-import { hoverStyle, mediaQueryWidth, spacingX } from '@/utils/styleUtil'
+import { Project } from '@/types'
+import { hoverStyle, mediaQueryWidth, spacingXY } from '@/utils/styleUtil'
 import { letIfTruthy } from '@/utils/sweet'
 
 type ArrowPosition = 'left' | 'right'
@@ -20,7 +22,7 @@ const showcaseCss = {
     display: 'flex',
     flexDirection: 'row',
     gap,
-    padding: spacingX(24),
+    padding: spacingXY(24, 12),
     overflowX: 'scroll',
     scrollbarWidth: 'none',
     scrollSnapType: 'x mandatory',
@@ -29,10 +31,18 @@ const showcaseCss = {
   item: css({
     flexShrink: 0,
     width: '100%',
-    aspectRatio: 16 / 9,
     scrollSnapAlign: 'start',
     [mediaQueryWidth('sm')]: {
       width: `calc(100% / 2 - ${gap}px)`,
+    },
+    img: {
+      width: '100%',
+      aspectRatio: 4 / 3,
+      boxShadow: `0 0 8px ${colors.dark33}`,
+    },
+    figcaption: {
+      marginTop: 4,
+      textAlign: 'center',
     },
   }),
   arrow: (position: ArrowPosition, visible: boolean) =>
@@ -42,7 +52,7 @@ const showcaseCss = {
         opacity: visible ? 1 : 0,
         transition: 'visibility .1s, opacity .3s',
         backgroundColor: colors.white87,
-        boxShadow: `0 0px 8px ${colors.dark12}`,
+        boxShadow: `0 0 8px ${colors.dark12}`,
         width: 60,
         height: 60,
         padding: 16,
@@ -66,11 +76,11 @@ const showcaseCss = {
 
 interface Props {
   className?: string
-  assets: string[]
+  showcase: Project['showcase']
 }
 
 function Showcase(props: Props): ReactElement {
-  const { className, assets } = props
+  const { className, showcase } = props
   const { ref, isHovered } = useHover<HTMLDivElement>()
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -83,20 +93,18 @@ function Showcase(props: Props): ReactElement {
     })
   }
 
-  if (!assets.length) {
+  if (!showcase.length) {
     return <></>
   }
 
   return (
-    <div ref={ref} css={showcaseCss.self}>
-      <div ref={scrollRef} className={className} css={showcaseCss.list}>
-        {assets.map((src, index) => (
-          <img
-            key={index}
-            css={showcaseCss.item}
-            src={src}
-            alt={`project image ${index}`}
-          />
+    <div ref={ref} className={className} css={showcaseCss.self}>
+      <div ref={scrollRef} css={showcaseCss.list}>
+        {showcase.map(({ image, alt }, index) => (
+          <figure key={index} css={showcaseCss.item}>
+            <Image image={image} alt={alt} />
+            <figcaption>{alt}</figcaption>
+          </figure>
         ))}
       </div>
       <IconButton

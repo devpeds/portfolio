@@ -1,11 +1,13 @@
 import { css } from '@emotion/react'
-import { ReactElement, Suspense, lazy, useState } from 'react'
+import { ReactElement, Suspense, lazy, useMemo, useState } from 'react'
 
+import Image from '@/components/Image'
 import SkillChips from '@/components/SkillChips'
 import { breakpoints, colors } from '@/styles'
 import { Project } from '@/types'
 import { formatInterval } from '@/utils/dateUtil'
 import { hoverStyle } from '@/utils/styleUtil'
+import { letIf } from '@/utils/sweet'
 
 const ProjectDetailModal = lazy(() => import('./ProjectDetailModal'))
 
@@ -77,35 +79,48 @@ const projectsCss = {
 
 interface CardProps {
   project: Project
+  onClick: () => void
 }
 
 function ProjectCard(props: CardProps): ReactElement {
-  const { project } = props
-  const [isSelected, setSelected] = useState(false)
+  const { project, onClick } = props
 
   return (
-    <>
-      <button css={projectsCss.item} onClick={() => setSelected(true)}>
-        <img css={projectsCss.image} src={project.image} alt={project.name} />
-        <div css={projectsCss.content}>
-          <div css={projectsCss.period}>
-            {formatInterval(project.startAt, project.endAt)}
-          </div>
-          <div css={projectsCss.title}>{project.name}</div>
-          <div css={projectsCss.description}>{project.description}</div>
-          <hr />
-          <SkillChips css={projectsCss.techStack} skills={project.techStack} />
+    <button css={projectsCss.item} onClick={onClick}>
+      <Image css={projectsCss.image} image={project.image} alt={project.name} />
+      <div css={projectsCss.content}>
+        <div css={projectsCss.period}>
+          {formatInterval(project.startAt, project.endAt)}
         </div>
-      </button>
-      <Suspense>
-        <ProjectDetailModal
-          project={project}
-          open={isSelected}
-          onClose={() => setSelected(false)}
-        />
-      </Suspense>
-    </>
+        <div css={projectsCss.title}>{project.name}</div>
+        <div css={projectsCss.description}>{project.description}</div>
+        <hr />
+        <SkillChips css={projectsCss.techStack} skills={project.techStack} />
+      </div>
+    </button>
   )
+}
+
+interface ListProps {
+  projects: Project[]
+  onProjectClick: (index: number) => void
+}
+
+function ProjectList(props: ListProps): ReactElement {
+  const { projects, onProjectClick } = props
+  return useMemo(() => {
+    return (
+      <>
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.name}
+            project={project}
+            onClick={() => onProjectClick(index)}
+          />
+        ))}
+      </>
+    )
+  }, [projects, onProjectClick])
 }
 
 interface Props {
@@ -114,12 +129,22 @@ interface Props {
 
 function Projects(props: Props): ReactElement {
   const { projects } = props
+  const [selected, setSelected] = useState<number>()
 
   return (
     <div css={projectsCss.list}>
-      {projects.map((project) => (
-        <ProjectCard key={project.name} project={project} />
-      ))}
+      <ProjectList projects={projects} onProjectClick={setSelected} />
+      <Suspense>
+        <ProjectDetailModal
+          key={selected}
+          project={letIf(selected, ($0) => projects[$0])}
+          next={letIf(selected, ($0) => projects[$0 + 1])}
+          prev={letIf(selected, ($0) => projects[$0 - 1])}
+          onNextClick={() => setSelected((prev) => (prev ?? 0) + 1)}
+          onPrevClick={() => setSelected((prev) => (prev ?? 0) - 1)}
+          onClose={() => setSelected(undefined)}
+        />
+      </Suspense>
     </div>
   )
 }

@@ -2,13 +2,13 @@ import { Skill } from '@/enums'
 
 interface Project {
   name: string
-  image: string
+  image: ImagePreset
   startAt: Date
   endAt?: Date
   techStack: Skill[]
   description: string
   detail: string
-  showcase: string[]
+  showcase: { image: ImagePreset; alt: string }[]
 }
 
 export default Project

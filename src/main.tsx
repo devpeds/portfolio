@@ -1,6 +1,5 @@
 import { Global, css } from '@emotion/react'
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 
 import App from './App.tsx'
 import nanumSquareNeoRegular from './assets/fonts/NanumSquareNeo-bRg-subset.woff'
@@ -62,6 +61,9 @@ const globalStyles = css`
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    transition:
+      color 0.2s,
+      background-color 0.3s;
   }
   button:not(:disabled),
   [type='button']:not(:disabled) {
@@ -73,9 +75,11 @@ const globalStyles = css`
   }
 `
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Global styles={globalStyles} />
-    <App />
-  </StrictMode>,
+import('react-dom/client').then(({ createRoot }) =>
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <Global styles={globalStyles} />
+      <App />
+    </StrictMode>,
+  ),
 )

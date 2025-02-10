@@ -1,4 +1,4 @@
-import { CSSInterpolation } from '@emotion/serialize'
+import { CSSInterpolation, CSSObject } from '@emotion/serialize'
 
 import { BreakPoint, breakpoints } from '@/styles'
 
@@ -29,10 +29,14 @@ export function spacingLRTB(
   return `${top}px ${right}px ${bottom}px ${left}px`
 }
 
+export function spacingLRY(left: number, right: number, y: number): string {
+  return spacingLRTB(left, right, y, y)
+}
+
 export function hoverStyle(
   css: CSSInterpolation,
   mobileStyle: 'active' | 'none' = 'active',
-): CSSInterpolation {
+): CSSObject {
   return {
     '@media (hover: hover) and (pointer: fine)': {
       '&:hover': css,

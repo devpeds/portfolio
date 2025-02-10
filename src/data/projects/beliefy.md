@@ -24,10 +24,12 @@ techStack:
   - BloC
   - Firebase
   - Fastlane
+  - Github Workflow
 
 ## Contributions
 
 - BLoC 패턴을 활용한 앱 내 주요 기능 및 화면 개발
+- 라이브러리 업데이트 및 기술 스택 최신화
 - Fastlane, Github Workflow를 활용한 배포 관리
 
 ## Significance
