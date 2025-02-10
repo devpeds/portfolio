@@ -37,6 +37,7 @@ const globalStyles = css`
     padding: 0;
     box-sizing: border-box;
     line-height: 1.5;
+    text-underline-offset: 0.3em;
   }
 
   :root {
