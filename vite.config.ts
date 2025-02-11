@@ -31,6 +31,7 @@ const markdownItExternalLink = (md: MarkdownIt): void => {
 
 const markdownIt = MarkdownIt({
   html: true,
+  linkify: true,
   highlight: (str, lang) => {
     if (lang && hljs.getLanguage(lang)) {
       try {

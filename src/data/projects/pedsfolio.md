@@ -14,6 +14,8 @@ techStack:
 
 SPA 기반 개인 포트폴리오 사이트입니다.
 
+Repository: https://github.com/devpeds/portfolio
+
 ## Overview
 
 - **Period**: 2024. 12. ~ 현재
