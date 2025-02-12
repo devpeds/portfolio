@@ -1,7 +1,7 @@
 ---
 name: 플레이윙즈 리뉴얼 프로젝트
 description: 여행 특가 알림 서비스 플레이윙즈의 리뉴얼 프로젝트
-startAt: 2020-03
+startAt: 2020-02
 endAt: 2022-03
 techStack:
   - TypeScript
