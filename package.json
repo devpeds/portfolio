@@ -45,5 +45,6 @@
     "vite-plugin-markdown": "^2.2.0",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4"
-  }
+  },
+  "packageManager": "yarn@3.8.7"
 }
