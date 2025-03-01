@@ -20,7 +20,7 @@ URL: https://www.playwings.co.kr/
 
 ## Overview
 
-- **Period**: 2020. 01. ~ 2022. 06.
+- **Period**: 2021. 01. ~ 2023. 06.
 - **Members**: 프론트엔드 개발자 3명, 풀스택 개발자 1명
 - **Role**: 프론트엔드 개발
 - **TechStack**:

@@ -22,6 +22,7 @@ techStack:
   - Dart
   - Flutter
   - BloC
+  - RxDart
   - Firebase
   - Fastlane
   - Github Workflow
