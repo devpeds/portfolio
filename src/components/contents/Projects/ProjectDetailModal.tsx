@@ -64,11 +64,16 @@ const modalCss = {
         borderRadius: 8,
       },
     },
-    img: {
+    figure: {
       display: 'block',
       width: '100%',
       maxWidth: 480,
       margin: '0 auto',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      img: {
+        width: '100%',
+      },
     },
   }),
   nav: css({

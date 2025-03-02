@@ -29,6 +29,27 @@ const markdownItExternalLink = (md: MarkdownIt): void => {
   })
 }
 
+const markdownItRenderFigure = (md: MarkdownIt): void => {
+  md.renderer.rules.image = (tokens, idx, options, env, self) => {
+    const token = tokens[idx]
+    const attrs = token.attrs
+    if (!attrs) {
+      throw Error('attrs cannot be empty')
+    }
+
+    if (token.hidden) {
+      return ''
+    }
+
+    const src = token.attrGet('src')
+    const alt = self.renderInlineAsText(token.children ?? [], options, env)
+
+    const img = `<img src="${src}" alt="${alt}"/>`
+    const caption = alt && `<figcaption>${alt}</figcaption>`
+    return `<figure>${img}${caption}</figure>`
+  }
+}
+
 const markdownIt = MarkdownIt({
   html: true,
   linkify: true,
@@ -43,7 +64,9 @@ const markdownIt = MarkdownIt({
 
     return ''
   },
-}).use(markdownItExternalLink)
+})
+  .use(markdownItExternalLink)
+  .use(markdownItRenderFigure)
 
 // https://vite.dev/config/
 export default defineConfig({
