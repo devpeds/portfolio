@@ -1,11 +1,12 @@
 import { Global, css } from '@emotion/react'
 import { StrictMode } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router'
 
-import App from './App.tsx'
 import nanumSquareNeoRegular from './assets/fonts/NanumSquareNeo-bRg-subset.woff'
 import nanumSquareNeoRegular2 from './assets/fonts/NanumSquareNeo-bRg-subset.woff2'
 import nanumSquareNeoBold from './assets/fonts/NanumSquareNeo-cBd-subset.woff'
 import nanumSquareNeoBold2 from './assets/fonts/NanumSquareNeo-cBd-subset.woff2'
+import Home from './pages/Home.tsx'
 import colors from './styles/colors.ts'
 
 // NOTE 1: multiple @font-face is not supported on object styling
@@ -80,7 +81,11 @@ import('react-dom/client').then(({ createRoot }) =>
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <Global styles={globalStyles} />
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </StrictMode>,
   ),
 )

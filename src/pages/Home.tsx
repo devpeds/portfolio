@@ -1,15 +1,15 @@
 import { css } from '@emotion/react'
 import { Fragment, ReactElement, useEffect } from 'react'
 
-import Container from './components/Container'
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
-import Section from './components/Section'
-import { Careers, Intro, Projects, Skills } from './components/contents'
-import { profile } from './data'
-import { SectionId } from './enums'
-import { colors } from './styles'
-import { Menu } from './types'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
+import Section from '../components/Section'
+import { Careers, Intro, Projects, Skills } from '../components/contents'
+import { profile } from '../data'
+import { SectionId } from '../enums'
+import { colors } from '../styles'
+import { Menu } from '../types'
 
 type SectionData = Menu & {
   component: ReactElement
@@ -41,7 +41,7 @@ const pageCss = {
   }),
 }
 
-function App(): ReactElement {
+function Home(): ReactElement {
   useEffect(() => {
     const scrollY = sessionStorage.getItem('scroll')
     if (scrollY) {
@@ -84,4 +84,4 @@ function App(): ReactElement {
   )
 }
 
-export default App
+export default Home
