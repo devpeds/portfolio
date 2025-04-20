@@ -32,7 +32,6 @@ const showcase = {
     { image: proofy3, alt: '지갑 추가 & 히스토리' },
     { image: proofy4, alt: '연봉 순위 조회 & 공유' },
   ],
-  playwingsWeb: [],
 }
 
 export default showcase

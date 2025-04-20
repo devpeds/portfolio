@@ -1,15 +1,41 @@
 import react from '@vitejs/plugin-react-swc'
+import fs from 'fs/promises'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
+import path from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
-import { defineConfig } from 'vite'
+import { Plugin, defineConfig, loadEnv } from 'vite'
 import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
 import imagemin from 'vite-plugin-imagemin'
 import { Mode, plugin as markdown } from 'vite-plugin-markdown'
 import svgr from 'vite-plugin-svgr'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
+// plugins
+/**
+ * This is a plugin for adding 404.html on output bundle enabling multi-page SPA on github pages
+ * - Reference: https://github.com/rafgraph/spa-github-pages
+ */
+const notFoundPage = (mode: string): Plugin => {
+  return {
+    name: 'not-found-page',
+    apply: 'build',
+    closeBundle: async () => {
+      const srcPath = path.resolve(__dirname, '404.html')
+      const destPath = path.resolve(__dirname, 'dist', '404.html')
+
+      const env = loadEnv(mode, process.cwd(), 'VITE_')
+
+      let content = await fs.readFile(srcPath, 'utf-8')
+      content = content.replace(/%(\w+)%/g, (_, envVar) => env[envVar] || '')
+
+      await fs.writeFile(destPath, content)
+    },
+  }
+}
+
+// for markdown
 const markdownItExternalLink = (md: MarkdownIt): void => {
   md.core.ruler.push('external_link', (state) => {
     const tokens = state.tokens
@@ -74,7 +100,7 @@ const markdownIt = MarkdownIt({
   })
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     tsConfigPaths(),
     svgr(),
@@ -96,6 +122,7 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
       plugins: [['@swc/plugin-emotion', {}]],
     }),
+    notFoundPage(mode),
     visualizer({ filename: 'dist/stats.html' }),
   ],
-})
+}))
