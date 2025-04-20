@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react-swc'
 import hljs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
+import markdownItAnchor from 'markdown-it-anchor'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
@@ -67,6 +68,10 @@ const markdownIt = MarkdownIt({
 })
   .use(markdownItExternalLink)
   .use(markdownItRenderFigure)
+  .use(markdownItAnchor, {
+    // NOTE: 플러그인 내부적으로 문자열을 인코딩하므로 가독성을 위해 인코딩하지 않도록 커스터마이징
+    slugify: (s) => s.trim().toLowerCase().replace(/\s+/g, '-'),
+  })
 
 // https://vite.dev/config/
 export default defineConfig({

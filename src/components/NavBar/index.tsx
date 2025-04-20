@@ -58,18 +58,20 @@ function NavBar({ className }: Props): ReactElement {
       return
     }
 
-    const section = document.getElementById(hash.substring(1))
-    if (!section) {
-      return
-    }
+    // NOTE: scroll to element after next animation frame
+    // to make sure all contents is loaded (workaround)
+    requestAnimationFrame(() => {
+      const section = document.getElementById(hash.substring(1))
+      if (section) {
+        const offset = innerRef.current?.getBoundingClientRect().height ?? 0
+        window.scrollBy({
+          top: section.getBoundingClientRect().top - offset,
+          behavior: 'smooth',
+        })
+      }
 
-    const offset = innerRef.current?.getBoundingClientRect().height ?? 0
-    window.scrollBy({
-      top: section.getBoundingClientRect().top - offset,
-      behavior: 'smooth',
+      navigate('', { replace: true })
     })
-
-    navigate('/', { replace: true })
   }, [hash, navigate])
 
   useEffect(() => {

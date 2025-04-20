@@ -53,6 +53,10 @@ const globalStyles = css`
     background-color: ${colors.lightGray};
   }
 
+  :target {
+    scroll-margin-top: 80px;
+  }
+
   ul,
   ol {
     list-style: none;

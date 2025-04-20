@@ -5469,6 +5469,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"markdown-it-anchor@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "markdown-it-anchor@npm:9.2.0"
+  peerDependencies:
+    "@types/markdown-it": "*"
+    markdown-it: "*"
+  checksum: 63f9ab99332d90fc09f8cede359f4c7f1c8d9765a0cd4d006538a072a9b5c9069e4e962c246ad7bc7a87a3ebb7e655e9f22f60e696ad855bdb51b7bfbae65c33
+  languageName: node
+  linkType: hard
+
 "markdown-it@npm:^12.0.0":
   version: 12.3.2
   resolution: "markdown-it@npm:12.3.2"
@@ -6377,6 +6387,7 @@ __metadata:
     globals: ^16.0.0
     highlight.js: ^11.11.1
     markdown-it: ^14.1.0
+    markdown-it-anchor: ^9.2.0
     prettier: ^3.5.2
     react: ^19.0.0
     react-dom: ^19.0.0
