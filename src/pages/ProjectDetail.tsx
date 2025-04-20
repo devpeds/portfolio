@@ -5,17 +5,23 @@ import { useNavigate, useParams } from 'react-router'
 import { SvgChevronLeft } from '@/assets/svg'
 import Container from '@/components/Container'
 import HtmlContent from '@/components/HtmlContent'
+import NavBar from '@/components/NavBar'
 import Showcase from '@/components/contents/Projects/Showcase'
 import projects from '@/data/projects'
 import { colors } from '@/styles'
-import { hoverStyle, spacingLRTB, spacingLRY } from '@/utils/styleUtil'
+import { hoverStyle, spacingLRY } from '@/utils/styleUtil'
 
 const pageCss = {
+  navBar: css({
+    position: 'sticky',
+    background: colors.dark,
+    color: colors.white,
+  }),
   showcase: css({
-    marginBottom: 20,
+    marginTop: 24,
   }),
   contents: css({
-    padding: spacingLRTB(24, 24, 0, 24),
+    padding: 24,
   }),
   nav: css({
     marginBottom: 24,
@@ -78,30 +84,33 @@ function ProjectDetail(): ReactElement {
   const next = projects[index + 1]
 
   return (
-    <Container>
-      <Showcase css={pageCss.showcase} showcase={project.showcase} />
-      <HtmlContent css={pageCss.contents} content={project.detail} />
-      <div css={pageCss.nav}>
-        {prev && (
-          <button css={pageCss.prev} onClick={() => navigate(`/${prev.id}`)}>
-            이전
-            <div>
-              <SvgChevronLeft width={16} height={16} />
-              <span>{prev.name}</span>
-            </div>
-          </button>
-        )}
-        {next && (
-          <button css={pageCss.next} onClick={() => navigate(`/${next.id}`)}>
-            다음
-            <div>
-              <span>{next.name}</span>
-              <SvgChevronLeft width={16} height={16} />
-            </div>
-          </button>
-        )}
-      </div>
-    </Container>
+    <>
+      <NavBar css={pageCss.navBar} />
+      <Container>
+        <Showcase css={pageCss.showcase} showcase={project.showcase} />
+        <HtmlContent css={pageCss.contents} content={project.detail} />
+        <div css={pageCss.nav}>
+          {prev && (
+            <button css={pageCss.prev} onClick={() => navigate(`/${prev.id}`)}>
+              이전
+              <div>
+                <SvgChevronLeft width={16} height={16} />
+                <span>{prev.name}</span>
+              </div>
+            </button>
+          )}
+          {next && (
+            <button css={pageCss.next} onClick={() => navigate(`/${next.id}`)}>
+              다음
+              <div>
+                <span>{next.name}</span>
+                <SvgChevronLeft width={16} height={16} />
+              </div>
+            </button>
+          )}
+        </div>
+      </Container>
+    </>
   )
 }
 
