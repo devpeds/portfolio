@@ -87,12 +87,10 @@ import('react-dom/client').then(({ createRoot }) =>
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <Global styles={globalStyles} />
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
-          <Route path={import.meta.env.BASE_URL}>
-            <Route index element={<Home />} />
-            <Route path=":projectId" element={<ProjectDetail />} />
-          </Route>
+          <Route index element={<Home />} />
+          <Route path=":projectId" element={<ProjectDetail />} />
         </Routes>
         <ScrollToTop />
       </BrowserRouter>
