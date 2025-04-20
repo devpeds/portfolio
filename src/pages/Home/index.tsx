@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
 import { Fragment, ReactElement, useEffect, useState } from 'react'
 
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
-import Section from '../components/Section'
-import { Careers, Intro, Projects, Skills } from '../components/contents'
-import { menus, profile } from '../data'
-import { SectionId } from '../enums'
-import { colors } from '../styles'
+import Container from '@/components/Container'
+import NavBar from '@/components/NavBar'
+import Section from '@/components/Section'
+import { menus, profile } from '@/data'
+import { SectionId } from '@/enums'
+import { colors } from '@/styles'
+
+import { Careers, Footer, Intro, Projects, Skills } from './components'
 
 type SectionData = {
   component: ReactElement

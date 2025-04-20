@@ -6,10 +6,10 @@ import nanumSquareNeoRegular from './assets/fonts/NanumSquareNeo-bRg-subset.woff
 import nanumSquareNeoRegular2 from './assets/fonts/NanumSquareNeo-bRg-subset.woff2'
 import nanumSquareNeoBold from './assets/fonts/NanumSquareNeo-cBd-subset.woff'
 import nanumSquareNeoBold2 from './assets/fonts/NanumSquareNeo-cBd-subset.woff2'
-import ScrollToTop from './components/ScrollToTop.tsx'
-import Home from './pages/Home.tsx'
-import ProjectDetail from './pages/ProjectDetail.tsx'
-import colors from './styles/colors.ts'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import ProjectDetail from './pages/ProjectDetail'
+import colors from './styles/colors'
 
 // NOTE 1: multiple @font-face is not supported on object styling
 // NOTE 2: change variable font if more than 3 font-weights are needed

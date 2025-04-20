@@ -4,11 +4,10 @@ import { ReactElement } from 'react'
 import { SvgChevronLeft } from '@/assets/svg'
 import HtmlContent from '@/components/HtmlContent'
 import Modal from '@/components/Modal'
+import Showcase from '@/components/Showcase'
 import { colors } from '@/styles'
 import { Project } from '@/types'
 import { hoverStyle, spacingLRTB, spacingLRY } from '@/utils/styleUtil'
-
-import Showcase from './Showcase'
 
 const modalCss = {
   self: css({
