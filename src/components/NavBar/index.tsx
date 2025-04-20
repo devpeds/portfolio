@@ -86,6 +86,10 @@ function NavBar({ className }: Props): ReactElement {
   }, [])
 
   const onLogoClick = () => {
+    if (pathname === '/') {
+      return window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
     navigate('/')
   }
 
