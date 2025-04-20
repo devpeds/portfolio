@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ReactElement } from 'react'
+import { ReactElement, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { SvgChevronLeft } from '@/assets/svg'
@@ -68,6 +68,16 @@ const pageCss = {
   }),
 }
 
+function Redirect(): ReactElement {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate('/', { replace: true })
+  }, [navigate])
+
+  return <></>
+}
+
 function ProjectDetail(): ReactElement {
   const { projectId } = useParams()
   const navigate = useNavigate()
@@ -75,8 +85,7 @@ function ProjectDetail(): ReactElement {
   const index = projects.findIndex((project) => project.id === projectId)
 
   if (index === -1) {
-    // TODO: render not found
-    return <></>
+    return <Redirect />
   }
 
   const project = projects[index]
