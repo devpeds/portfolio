@@ -4,20 +4,23 @@ import { useNavigate } from 'react-router'
 
 import Image from '@/components/Image'
 import SkillChips from '@/components/SkillChips'
-import { breakpoints, colors } from '@/styles'
+import { colors } from '@/styles'
 import { Project } from '@/types'
 import { formatInterval } from '@/utils/dateUtil'
-import { hoverStyle } from '@/utils/styleUtil'
+import { hoverStyle, mediaQueryWidth } from '@/utils/styleUtil'
 
 const gap = 32
-const numberOfRows = 2
+
+function calculateCardWidth(numberOfRows: number): string {
+  return `calc((100% - ${gap * (numberOfRows - 1)}px) / ${numberOfRows})`
+}
 
 const projectsCss = {
   list: css({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 32,
+    gap,
   }),
   item: css(
     {
@@ -33,8 +36,11 @@ const projectsCss = {
       overflow: 'hidden',
       transition: 'transform .1s',
       boxShadow: `0 0 16px 0 ${colors.black12}`,
-      [`@media (min-width: ${breakpoints.sm}px)`]: {
-        width: `calc((100% - ${gap}px) / ${numberOfRows})`,
+      [mediaQueryWidth('sm')]: {
+        width: calculateCardWidth(2),
+      },
+      [mediaQueryWidth('md')]: {
+        width: calculateCardWidth(3),
       },
     },
     hoverStyle({ transform: 'scale(1.05)' }, 'none'),

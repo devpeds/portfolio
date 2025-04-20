@@ -7,14 +7,6 @@ import beliefy1 from './beliefy-1.png?preset=showcase'
 import beliefy2 from './beliefy-2.png?preset=showcase'
 import beliefy3 from './beliefy-3.png?preset=showcase'
 import beliefy4 from './beliefy-4.png?preset=showcase'
-import playwingsWeb1 from './playwings-web-1.png?preset=showcase'
-import playwingsWeb2 from './playwings-web-2.png?preset=showcase'
-import playwingsWeb3 from './playwings-web-3.png?preset=showcase'
-import playwingsWeb4 from './playwings-web-4.png?preset=showcase'
-import playwingsWeb5 from './playwings-web-5.png?preset=showcase'
-import playwingsWeb6 from './playwings-web-6.png?preset=showcase'
-import playwingsWeb7 from './playwings-web-7.png?preset=showcase'
-import playwingsWeb8 from './playwings-web-8.png?preset=showcase'
 import proofy1 from './proofy-1.png?preset=showcase'
 import proofy2 from './proofy-2.png?preset=showcase'
 import proofy3 from './proofy-3.png?preset=showcase'
@@ -40,16 +32,7 @@ const showcase = {
     { image: proofy3, alt: '지갑 추가 & 히스토리' },
     { image: proofy4, alt: '연봉 순위 조회 & 공유' },
   ],
-  playwingsWeb: [
-    { image: playwingsWeb1, alt: '홈' },
-    { image: playwingsWeb2, alt: '특가 상품' },
-    { image: playwingsWeb3, alt: '호텔 검색' },
-    { image: playwingsWeb4, alt: '호텔 상세' },
-    { image: playwingsWeb5, alt: '(모바일) 홈 & 특가 상세' },
-    { image: playwingsWeb6, alt: '(모바일) 특가 상세' },
-    { image: playwingsWeb7, alt: '(모바일) 호텔 검색' },
-    { image: playwingsWeb8, alt: '(모바일) 호텔 상세' },
-  ],
+  playwingsWeb: [],
 }
 
 export default showcase

@@ -7,6 +7,7 @@ import * as beliefy from './beliefy.md'
 import * as pedsfolio from './pedsfolio.md'
 import * as playwingsRenewal from './playwings-renewal.md'
 import * as playwingsWeb from './playwings-web.md'
+import * as playwingsWebview from './playwings-webview.md'
 import * as proofy from './proofy.md'
 
 type ProjectKey = keyof typeof projectMap
@@ -23,6 +24,7 @@ const projectMap = {
   altong,
   beliefy,
   proofy,
+  playwingsWebview,
   playwingsWeb,
   playwingsRenewal,
   pedsfolio,
@@ -34,6 +36,7 @@ const projects: Project[] = (
     'beliefy',
     'altong',
     'proofy',
+    'playwingsWebview',
     'playwingsWeb',
     'playwingsRenewal',
   ] satisfies ProjectKey[]

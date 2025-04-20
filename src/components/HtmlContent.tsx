@@ -31,8 +31,6 @@ const contentCss = css({
   },
   summary: {
     padding: spacingY(12),
-    fontSize: '1.2em',
-    fontWeight: 700,
   },
   '& :not(pre) > code': {
     backgroundColor: colors.lightGray,

@@ -1,13 +1,12 @@
 ---
 name: 플레이윙즈 리뉴얼 프로젝트
 description: 여행 특가 알림 서비스 플레이윙즈의 리뉴얼 프로젝트
-startAt: 2020-02
-endAt: 2022-03
+startAt: 2020-03
+endAt: 2020-07
 techStack:
   - TypeScript
   - React Native
   - MobX
-  - GraphQL
 ---
 
 # 플레이윙즈 리뉴얼 프로젝트
@@ -17,15 +16,12 @@ techStack:
 ## Overview
 
 - **Period**: 2020. 02. ~ 2022. 03.
-- **Members**: 
-  <br>(출시 전) 프론트엔드 개발자 3명, 백엔드 개발자 3명
-  <br>(출시 후) 프론트엔드 개발자 2명, 풀스택 개발자 1명
+- **Members**: 프론트엔드 개발자 3명, 백엔드 개발자 3명
 - **Role**: 프론트엔드 개발
 - **TechStack**:
   - TypeScript
   - React Native
   - MobX
-  - GraphQL
   - Protocol Buffer
   - Contentful
   - Fastlane
