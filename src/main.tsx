@@ -7,6 +7,7 @@ import nanumSquareNeoRegular2 from './assets/fonts/NanumSquareNeo-bRg-subset.wof
 import nanumSquareNeoBold from './assets/fonts/NanumSquareNeo-cBd-subset.woff'
 import nanumSquareNeoBold2 from './assets/fonts/NanumSquareNeo-cBd-subset.woff2'
 import Home from './pages/Home.tsx'
+import ProjectDetail from './pages/ProjectDetail.tsx'
 import colors from './styles/colors.ts'
 
 // NOTE 1: multiple @font-face is not supported on object styling
@@ -84,6 +85,7 @@ import('react-dom/client').then(({ createRoot }) =>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
+          <Route path=":projectId" element={<ProjectDetail />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>,

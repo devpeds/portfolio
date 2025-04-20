@@ -1,5 +1,63 @@
+import { css } from '@emotion/react'
 import { ReactElement, use } from 'react'
 import 'highlight.js/styles/github.min.css'
+
+import { colors } from '@/styles'
+import { spacingY } from '@/utils/styleUtil'
+
+const contentCss = css({
+  h1: {
+    marginBottom: 24,
+  },
+  'h2, h3, p, pre': {
+    marginBottom: 16,
+  },
+  '& ul, ol': {
+    listStyle: 'initial',
+    paddingLeft: 20,
+    paddingBottom: 16,
+    'ul, ol': {
+      paddingBottom: 0,
+    },
+  },
+  li: {
+    marginBottom: 8,
+    summary: {
+      padding: 0,
+      paddingTop: 8,
+      fontSize: '0.9em',
+      fontWeight: 400,
+    },
+  },
+  summary: {
+    padding: spacingY(12),
+    fontSize: '1.2em',
+    fontWeight: 700,
+  },
+  '& :not(pre) > code': {
+    backgroundColor: colors.lightGray,
+    color: 'red',
+    padding: 4,
+    borderRadius: 4,
+  },
+  pre: {
+    overflow: 'scroll',
+    code: {
+      borderRadius: 8,
+    },
+  },
+  figure: {
+    display: 'block',
+    width: '100%',
+    maxWidth: 480,
+    margin: '0 auto',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    img: {
+      width: '100%',
+    },
+  },
+})
 
 interface Props {
   className?: string
@@ -11,6 +69,7 @@ function HtmlContent(props: Props): ReactElement {
     typeof props.content === 'string' ? props.content : use(props.content)
   return (
     <div
+      css={contentCss}
       className={props.className}
       dangerouslySetInnerHTML={{ __html: content }}
     />

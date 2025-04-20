@@ -35,6 +35,9 @@ const showcaseCss = {
     [mediaQueryWidth('sm')]: {
       width: `calc(100% / 2 - ${gap}px)`,
     },
+    [mediaQueryWidth('md')]: {
+      width: `calc(100% / 3 - ${gap}px)`,
+    },
     img: {
       width: '100%',
       aspectRatio: 4 / 3,

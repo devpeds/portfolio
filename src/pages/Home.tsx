@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { Fragment, ReactElement, useEffect } from 'react'
+import { Fragment, ReactElement } from 'react'
 
 import Container from '../components/Container'
 import Footer from '../components/Footer'
@@ -42,24 +42,6 @@ const pageCss = {
 }
 
 function Home(): ReactElement {
-  useEffect(() => {
-    const scrollY = sessionStorage.getItem('scroll')
-    if (scrollY) {
-      window.scrollTo(0, parseFloat(scrollY))
-    }
-  }, [])
-
-  useEffect(() => {
-    const saveScrollPosition = () => {
-      sessionStorage.setItem('scroll', window.scrollY.toString())
-    }
-
-    window.addEventListener('beforeunload', saveScrollPosition)
-    return () => {
-      window.removeEventListener('beforeunload', saveScrollPosition)
-    }
-  }, [])
-
   return (
     <>
       <NavBar menus={menus} />

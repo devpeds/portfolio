@@ -1,6 +1,7 @@
 import { Skill } from '@/enums'
 
 interface Project {
+  id: string
   name: string
   image: ImagePreset
   startAt: Date

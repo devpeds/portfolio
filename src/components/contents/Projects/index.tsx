@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { ReactElement, Suspense, lazy, useMemo, useState } from 'react'
+import { ReactElement, useMemo } from 'react'
+import { useNavigate } from 'react-router'
 
 import Image from '@/components/Image'
 import SkillChips from '@/components/SkillChips'
@@ -7,9 +8,6 @@ import { breakpoints, colors } from '@/styles'
 import { Project } from '@/types'
 import { formatInterval } from '@/utils/dateUtil'
 import { hoverStyle } from '@/utils/styleUtil'
-import { letIf } from '@/utils/sweet'
-
-const ProjectDetailModal = lazy(() => import('./ProjectDetailModal'))
 
 const gap = 32
 const numberOfRows = 2
@@ -103,7 +101,7 @@ function ProjectCard(props: CardProps): ReactElement {
 
 interface ListProps {
   projects: Project[]
-  onProjectClick: (index: number) => void
+  onProjectClick: (project: Project) => void
 }
 
 function ProjectList(props: ListProps): ReactElement {
@@ -111,11 +109,11 @@ function ProjectList(props: ListProps): ReactElement {
   return useMemo(() => {
     return (
       <>
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <ProjectCard
             key={project.name}
             project={project}
-            onClick={() => onProjectClick(index)}
+            onClick={() => onProjectClick(project)}
           />
         ))}
       </>
@@ -129,22 +127,14 @@ interface Props {
 
 function Projects(props: Props): ReactElement {
   const { projects } = props
-  const [selected, setSelected] = useState<number>()
+  const navigate = useNavigate()
 
   return (
     <div css={projectsCss.list}>
-      <ProjectList projects={projects} onProjectClick={setSelected} />
-      <Suspense>
-        <ProjectDetailModal
-          key={selected}
-          project={letIf(selected, ($0) => projects[$0])}
-          next={letIf(selected, ($0) => projects[$0 + 1])}
-          prev={letIf(selected, ($0) => projects[$0 - 1])}
-          onNextClick={() => setSelected((prev) => (prev ?? 0) + 1)}
-          onPrevClick={() => setSelected((prev) => (prev ?? 0) - 1)}
-          onClose={() => setSelected(undefined)}
-        />
-      </Suspense>
+      <ProjectList
+        projects={projects}
+        onProjectClick={(project) => navigate(`/${project.id}`)}
+      />
     </div>
   )
 }

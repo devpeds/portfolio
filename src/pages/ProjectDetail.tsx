@@ -1,19 +1,16 @@
 import { css } from '@emotion/react'
 import { ReactElement } from 'react'
+import { useNavigate, useParams } from 'react-router'
 
 import { SvgChevronLeft } from '@/assets/svg'
+import Container from '@/components/Container'
 import HtmlContent from '@/components/HtmlContent'
-import Modal from '@/components/Modal'
+import Showcase from '@/components/contents/Projects/Showcase'
+import projects from '@/data/projects'
 import { colors } from '@/styles'
-import { Project } from '@/types'
 import { hoverStyle, spacingLRTB, spacingLRY } from '@/utils/styleUtil'
 
-import Showcase from './Showcase'
-
-const modalCss = {
-  self: css({
-    height: '100%',
-  }),
+const pageCss = {
   showcase: css({
     marginBottom: 20,
   }),
@@ -65,26 +62,28 @@ const modalCss = {
   }),
 }
 
-interface Props {
-  project?: Project
-  prev?: Project
-  next?: Project
-  onPrevClick: (prev: Project) => void
-  onNextClick: (next: Project) => void
-  onClose?: () => void
-}
+function ProjectDetail(): ReactElement {
+  const { projectId } = useParams()
+  const navigate = useNavigate()
 
-function ProjectDetailModal(props: Props): ReactElement {
-  const { project, prev, next, onPrevClick, onNextClick, onClose } = props
+  const index = projects.findIndex((project) => project.id === projectId)
+
+  if (index === -1) {
+    // TODO: render not found
+    return <></>
+  }
+
+  const project = projects[index]
+  const prev = projects[index - 1]
+  const next = projects[index + 1]
 
   return (
-    <Modal css={modalCss.self} open={Boolean(project)} onClose={onClose}>
-      <Modal.Header onClose={onClose}>Project Details</Modal.Header>
-      <Showcase css={modalCss.showcase} showcase={project?.showcase ?? []} />
-      <HtmlContent css={modalCss.contents} content={project?.detail ?? ''} />
-      <div css={modalCss.nav}>
+    <Container>
+      <Showcase css={pageCss.showcase} showcase={project.showcase} />
+      <HtmlContent css={pageCss.contents} content={project.detail} />
+      <div css={pageCss.nav}>
         {prev && (
-          <button css={modalCss.prev} onClick={() => onPrevClick(prev)}>
+          <button css={pageCss.prev} onClick={() => navigate(`/${prev.id}`)}>
             이전
             <div>
               <SvgChevronLeft width={16} height={16} />
@@ -93,7 +92,7 @@ function ProjectDetailModal(props: Props): ReactElement {
           </button>
         )}
         {next && (
-          <button css={modalCss.next} onClick={() => onNextClick(next)}>
+          <button css={pageCss.next} onClick={() => navigate(`/${next.id}`)}>
             다음
             <div>
               <span>{next.name}</span>
@@ -102,8 +101,8 @@ function ProjectDetailModal(props: Props): ReactElement {
           </button>
         )}
       </div>
-    </Modal>
+    </Container>
   )
 }
 
-export default ProjectDetailModal
+export default ProjectDetail
