@@ -89,8 +89,10 @@ import('react-dom/client').then(({ createRoot }) =>
       <Global styles={globalStyles} />
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home />} />
-          <Route path=":projectId" element={<ProjectDetail />} />
+          <Route path={import.meta.env.BASE_URL}>
+            <Route index element={<Home />} />
+            <Route path=":projectId" element={<ProjectDetail />} />
+          </Route>
         </Routes>
         <ScrollToTop />
       </BrowserRouter>
