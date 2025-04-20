@@ -61,7 +61,8 @@ function NavBar({ className }: Props): ReactElement {
     // NOTE: scroll to element after next animation frame
     // to make sure all contents is loaded (workaround)
     requestAnimationFrame(() => {
-      const section = document.getElementById(hash.substring(1))
+      const id = decodeURIComponent(hash.substring(1))
+      const section = document.getElementById(id)
       if (section) {
         const offset = innerRef.current?.getBoundingClientRect().height ?? 0
         window.scrollBy({
