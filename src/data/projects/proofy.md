@@ -31,7 +31,7 @@ techStack:
 
 ## Contributions
 
-- 앱 주요 기능 개발
+- 앱 주요 기능 개발 (기여도 40%)
   - react-hook-form을 이용한 KYC 입력 폼 개발
   - react-native-reanimated 도입 및 애니메이션 로직 개발
   - 소셜 로그인(Kakao, Google, Apple) 연동

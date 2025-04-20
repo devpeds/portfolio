@@ -3,7 +3,7 @@ import { ReactElement, use } from 'react'
 import 'highlight.js/styles/github.min.css'
 
 import { colors } from '@/styles'
-import { spacingY } from '@/utils/styleUtil'
+import { spacingX, spacingY } from '@/utils/styleUtil'
 
 const contentCss = css({
   h1: {
@@ -33,16 +33,17 @@ const contentCss = css({
     padding: spacingY(12),
   },
   '& :not(pre) > code': {
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.black12,
     color: 'red',
+    margin: spacingX(2),
     padding: 4,
     borderRadius: 4,
   },
   pre: {
+    backgroundColor: colors.white,
+    padding: 16,
     overflow: 'scroll',
-    code: {
-      borderRadius: 8,
-    },
+    borderRadius: 8,
   },
   figure: {
     display: 'block',
