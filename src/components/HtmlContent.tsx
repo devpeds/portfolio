@@ -48,7 +48,7 @@ const contentCss = css({
   figure: {
     display: 'block',
     width: '100%',
-    maxWidth: 480,
+    maxWidth: 800,
     margin: '0 auto',
     textAlign: 'center',
     fontWeight: 'bold',
