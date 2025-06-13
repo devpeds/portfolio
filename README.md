@@ -2,6 +2,17 @@
 
 Portfolio site with TypeScript + React + Vite(w/ SWC)
 
+See more detail [here (written in Korean)](./src/data/projects/pedsfolio.md)
+
+## Getting Started
+
+```sh
+git clone https://github.com/devpeds/portfolio.git
+
+yarn install
+yarn dev
+```
+
 ## TechStack
 
 - TypeScript
@@ -9,10 +20,3 @@ Portfolio site with TypeScript + React + Vite(w/ SWC)
 - Vite
 - SWC
 - Emotion
-
-## Usage
-
-```sh
-yarn install
-yarn dev
-```
