@@ -1,5 +1,5 @@
 import { Global, css } from '@emotion/react'
-import { StrictMode } from 'react'
+import { StrictMode, lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
 import nanumSquareNeoRegular from './assets/fonts/NanumSquareNeo-bRg-subset.woff'
@@ -7,9 +7,10 @@ import nanumSquareNeoRegular2 from './assets/fonts/NanumSquareNeo-bRg-subset.wof
 import nanumSquareNeoBold from './assets/fonts/NanumSquareNeo-cBd-subset.woff'
 import nanumSquareNeoBold2 from './assets/fonts/NanumSquareNeo-cBd-subset.woff2'
 import ScrollToTop from './components/ScrollToTop'
-import Home from './pages/Home'
-import ProjectDetail from './pages/ProjectDetail'
 import colors from './styles/colors'
+
+const Home = lazy(() => import('./pages/Home'))
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
 
 // NOTE 1: multiple @font-face is not supported on object styling
 // NOTE 2: change variable font if more than 3 font-weights are needed
